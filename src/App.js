@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 
 import Navbar from "./components/navbar/navbar";
+import FrontPage from "./pages/FrontPage.js";
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Route path="/" component={Navbar} />
+            <Route path="/frontpage" component={FrontPage} />
           </div>
         </BrowserRouter>
       </div>

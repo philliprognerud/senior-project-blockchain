@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./frontpage.css";
 import bgshowcase1 from "../components/images/bg-showcase-1.jpg";
+import deviceImg from "../components/images/device.jpg";
 
 class FrontPage extends Component {
 	constructor(props) {
@@ -17,17 +18,17 @@ class FrontPage extends Component {
             <div className="container">
               <div className="columns">
                 <div className="column">
-                  <h1 className="title has-text-white">Car ID & Analytics</h1>
+                  <h1 className="title has-text-white">Car ID &amp; Analytics</h1>
                   <h2 class="subtitle has-text-white">Get your car's health history</h2>
                 </div>
                 <div className="column">
                   <form>
                     <div className="field is-grouped">
                       <div className="control">
-                        <input className="input" type="text" placeholder="Enter VIN" />
+                        <input className="input is-medium" type="text" placeholder="Enter VIN" />
                       </div>
                       <div className="control">
-                        <button type="submit" className="button is-info">Get Report</button>
+                        <button type="submit" className="button is-medium is-info">Get Report</button>
                       </div>
                     </div>
                   </form>
@@ -40,32 +41,32 @@ class FrontPage extends Component {
         {/*<!-- Icons Grid -->*/}
         <section className="section features-icons bg-light text-center">
           <div className="container">
-            <div className="columns">
+            <div className="columns has-text-centered">
               <div className="column">
-                <div className="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                  <div className="features-icons-icon d-flex">
-                    <i className="icon-screen-desktop m-auto text-primary"></i>
-                  </div>
-                  <h3 className="title is-3">Fully Responsive</h3>
-                  <p className="subtitle is-5">This theme will look great on any device, no matter the size!</p>
+                <div className="features-icons-item">
+                  <span className="features-icons-icon icon is-large">
+                    <i class="fas fa-car fa-5x" aria-hidden="true"></i>
+                  </span>
+                  <h3 className="title is-3">Buyer Friendly</h3>
+                  <p className="subtitle is-5">View a complete report of your future car.</p>
                 </div>
               </div>
               <div className="column">
-                <div className="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                  <div className="features-icons-icon d-flex">
-                    <i className="icon-layers m-auto text-primary"></i>
-                  </div>
-                  <h3 className="title is-3">Bootstrap 4 Ready</h3>
-                  <p className="subtitle is-5">Featuring the latest build of the new Bootstrap 4 framework!</p>
+                <div className="features-icons-item">
+                  <span className="features-icons-icon icon is-large">
+                    <i class="fas fa-chart-bar fa-5x" aria-hidden="true"></i>
+                  </span>
+                  <h3 className="title is-3">History &amp; Analytics</h3>
+                  <p className="subtitle is-5">See a detailed history and overall health of your car, down to specific parts.</p>
                 </div>
               </div>
               <div className="column">
-                <div className="features-icons-item mx-auto mb-0 mb-lg-3">
-                  <div className="features-icons-icon d-flex">
-                    <i className="icon-check m-auto text-primary"></i>
-                  </div>
-                  <h3 className="title is-3">Easy to Use</h3>
-                  <p className="subtitle is-5">Ready to use with your own content, or customize the source files!</p>
+                <div className="features-icons-item">
+                  <span className="features-icons-icon icon is-large">
+                    <i class="fas fa-lock fa-5x" aria-hidden="true"></i>
+                  </span>
+                  <h3 className="title is-3">Secure</h3>
+                  <p className="subtitle is-5">Using blockchain techonology, your data is guaranteed tamper free.</p>
                 </div>
               </div>
             </div>
@@ -75,32 +76,35 @@ class FrontPage extends Component {
         {/*<!-- Image Showcases -->*/}
         <section className="section showcase">
           <div className="container is-fluid">
-            <div className="columns">
-
+            <div className="columns is-multiline">
+              <div className="column is-half showcase-img">
+                <img src={deviceImg} alt=""/>
+              </div>
+              <div className="column is-half has-text-centered showcase-text"
+              	style={{ marginBottom: "0px"}}>
+                <h2 className="title is-2">Use our device.</h2>
+                <p className="subtitle is-6">
+                	Just plug the easy to use device into your vehicle to start tracking.
+                </p>
+              </div>
+              <div className="column is-half has-text-centered showcase-text"
+              	style={{ marginBottom: "0px" }}>
+                <h2 className="title is-2">View Part Health</h2>
+                <p className="subtitle is-6">
+                	See the current conditions each part of your vehicle.
+                </p>
+              </div>
               <div className="column is-half showcase-img">
                 <img src={bgshowcase1} alt=""/>
               </div>
-              <div className="column has-text-centered notification showcase-text">
-                <h2 className="title is-2">Fully Responsive Design</h2>
-                <p className="subtitle is-6">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
-              </div>
-            </div>
-            <div className="columns">
-              <div className="column has-text-centered notification showcase-text">
-                <h2 className="title is-2">Updated For Bootstrap 4</h2>
-                <p className="subtitle is-6">Newly improved, and full of great utility classes, Bootstrap 4 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 4!</p>
-              </div>
               <div className="column is-half showcase-img">
                 <img src={bgshowcase1} alt=""/>
               </div>
-            </div>
-            <div className="columns">
-              <div className="column is-half showcase-img">
-                <img src={bgshowcase1} alt=""/>
-              </div>
-              <div className="column has-text-centered notification showcase-text">
-                <h2 className="title is-2">Easy to Use &amp; Customize</h2>
-                <p className="subtitle is-6">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>
+              <div className="column is-half has-text-centered showcase-text">
+                <h2 className="title is-2">Get Notifications</h2>
+                <p className="subtitle is-6">
+                	We'll send you notifications about how you can improve your car's health;
+                </p>
               </div>
             </div>
           </div>
@@ -165,6 +169,10 @@ class FrontPage extends Component {
           <div className="content has-text-centered">
             <p>
               Blame Dominic
+            </p>
+           	<hr/>
+            <p>
+            	Project repository: <a href="" >GitHub</a>
             </p>
           </div>
         </footer>

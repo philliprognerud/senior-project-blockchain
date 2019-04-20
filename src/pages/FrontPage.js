@@ -117,24 +117,24 @@ class FrontPage extends Component {
             <div className="columns">
               <div className="column">
                 <figure className="image is-128x128" style={{ margin: "auto"}}>
-                  <img className="is-rounded" src="" alt="Insert Dominic's Face Here" />
+                  <img className="is-rounded" src={deviceImg} alt="Insert Dominic's Face Here" />
                 </figure>
-                <h5>Margaret E.</h5>
+                <h5>Phil R.</h5>
                 <p className="subtitle is-6">"This is fantastic! Thanks so much guys!"</p>
               </div>
               <div className="column">
                 <figure className="image is-128x128" style={{ margin: "auto"}}>
-                  <img className="is-rounded" src="" alt="Insert Dominic's Face Here" />
+                  <img className="is-rounded" src={deviceImg} alt="Insert Dominic's Face Here" />
                 </figure>
-                <h5>Fred S.</h5>
-                <p className="subtitle is-6">"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</p>
+                <h5>Dom P.</h5>
+                <p className="subtitle is-6">"The reports are easy to read and understand. Now my car is running better than ever!"</p>
               </div>
               <div className="column">
                 <figure className="image is-128x128" style={{ margin: "auto"}}>
-                  <img className="is-rounded" src="" alt="Insert Dominic's Face Here" />
+                  <img className="is-rounded" src={deviceImg} alt="Insert Dominic's Face Here" />
                 </figure>
-                <h5>Sarah W.</h5>
-                <p className="subtitle is-6">"Thanks so much for making these free resources available to us!"</p>
+                <h5>Dave B.</h5>
+                <p className="subtitle is-6">"I improved my driving. Thanks!"</p>
               </div>
             </div>
           </div>

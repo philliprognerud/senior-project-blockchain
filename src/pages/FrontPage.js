@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import "./frontpage.css";
 import bgshowcase1 from "../components/images/bg-showcase-1.jpg";
 import deviceImg from "../components/images/device.jpg";
+import car from "../components/images/car1.jpg";
+import data from "../components/images/data.jpg"
+import dom from "../components/images/dom.jpg";
+import phil from "../components/images/phil.jpg";
+import dave from "../components/images/dave.jpg";
+
 
 class FrontPage extends Component {
 	constructor(props) {
@@ -81,29 +87,30 @@ class FrontPage extends Component {
                 <img src={deviceImg} alt=""/>
               </div>
               <div className="column is-half has-text-centered showcase-text"
-              	style={{ marginBottom: "0px"}}>
+              	style={{ marginBottom: "0px", paddingTop: "10%"}}>
                 <h2 className="title is-2">Use our device.</h2>
                 <p className="subtitle is-6">
                 	Just plug the easy to use device into your vehicle to start tracking.
                 </p>
               </div>
               <div className="column is-half has-text-centered showcase-text"
-              	style={{ marginBottom: "0px" }}>
+              	style={{ marginBottom: "0px", paddingTop: "10%" }}>
                 <h2 className="title is-2">View Part Health</h2>
                 <p className="subtitle is-6">
                 	See the current conditions each part of your vehicle.
                 </p>
               </div>
               <div className="column is-half showcase-img">
-                <img src={bgshowcase1} alt=""/>
+                <img src={car} alt=""/>
               </div>
               <div className="column is-half showcase-img">
-                <img src={bgshowcase1} alt=""/>
+                <img src={data} alt=""/>
               </div>
-              <div className="column is-half has-text-centered showcase-text">
-                <h2 className="title is-2">Get Notifications</h2>
+              <div className="column is-half has-text-centered showcase-text"
+              	style={{ paddingTop: "10%" }}>
+                <h2 className="title is-2">See the Data</h2>
                 <p className="subtitle is-6">
-                	We'll send you notifications about how you can improve your car's health;
+                	Get real time data on your car and see the trends based on your driving performance.
                 </p>
               </div>
             </div>
@@ -117,24 +124,24 @@ class FrontPage extends Component {
             <div className="columns">
               <div className="column">
                 <figure className="image is-128x128" style={{ margin: "auto"}}>
-                  <img className="is-rounded" src="" alt="Insert Dominic's Face Here" />
+                  <img className="is-rounded" src={dom} alt="Insert Dominic's Face Here" />
                 </figure>
-                <h5>Margaret E.</h5>
-                <p className="subtitle is-6">"This is fantastic! Thanks so much guys!"</p>
+                <h5>Dom P.</h5>
+                <p className="subtitle is-6">"The device was easy to use. Now I can keep track of my car's health!"</p>
               </div>
               <div className="column">
                 <figure className="image is-128x128" style={{ margin: "auto"}}>
-                  <img className="is-rounded" src="" alt="Insert Dominic's Face Here" />
+                  <img className="is-rounded" src={phil} alt="Insert Dominic's Face Here" />
                 </figure>
-                <h5>Fred S.</h5>
-                <p className="subtitle is-6">"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</p>
+                <h5>Phil R.</h5>
+                <p className="subtitle is-6">"This is fantastic! My car is in better shape now. Thanks!"</p>
               </div>
               <div className="column">
                 <figure className="image is-128x128" style={{ margin: "auto"}}>
-                  <img className="is-rounded" src="" alt="Insert Dominic's Face Here" />
+                  <img className="is-rounded" src={dave} alt="Insert Dominic's Face Here" />
                 </figure>
-                <h5>Sarah W.</h5>
-                <p className="subtitle is-6">"Thanks so much for making these free resources available to us!"</p>
+                <h5>Dave B.</h5>
+                <p className="subtitle is-6">"I learned to take better care of my car!"</p>
               </div>
             </div>
           </div>
@@ -172,7 +179,7 @@ class FrontPage extends Component {
             </p>
            	<hr/>
             <p>
-            	Project repository: <a href="" >GitHub</a>
+            	<i class="fab fa-github"/><a href="https://github.com/philliprognerud/senior-project-blockchain" > GitHub</a>
             </p>
           </div>
         </footer>

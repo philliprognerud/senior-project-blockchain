@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./frontpage.css";
-import bgshowcase1 from "../components/images/bg-showcase-1.jpg";
 import deviceImg from "../components/images/device.jpg";
 import car from "../components/images/car1.jpg";
 import data from "../components/images/data.jpg"
@@ -22,19 +21,26 @@ class FrontPage extends Component {
           <div className="overlay"></div>
           <div className="hero-body">
             <div className="container">
-              <div className="columns">
-                <div className="column">
-                  <h1 className="title has-text-white">Car ID &amp; Analytics</h1>
-                  <h2 class="subtitle has-text-white">Get your car's health history</h2>
-                </div>
-                <div className="column">
+              <div className="columns is-centered">
+                <div className="column is-half has-text-centered">
+                  <p className="title is-1 has-text-white" 
+                    style={{ textShadow: "0 2px 8px rgba(0,0,0,2)"}}>
+                    Car ID &amp; Analytics
+                  </p>
+                  <p class="subtitle is-3 has-text-white" 
+                    style={{ textShadow: "0 2px 8px rgba(0,0,0,2)"}}>
+                    Get your car's health history
+                  </p>
                   <form>
                     <div className="field is-grouped">
-                      <div className="control">
+                      <div className="control is-expanded">
                         <input className="input is-medium" type="text" placeholder="Enter VIN" />
                       </div>
                       <div className="control">
-                        <button type="submit" className="button is-medium is-info">Get Report</button>
+                        <button type="submit" 
+                          className="button is-medium is-info">
+                          Get Report
+                        </button>
                       </div>
                     </div>
                   </form>
@@ -53,8 +59,12 @@ class FrontPage extends Component {
                   <span className="features-icons-icon icon is-large">
                     <i class="fas fa-car fa-5x" aria-hidden="true"></i>
                   </span>
-                  <h3 className="title is-3">Buyer Friendly</h3>
-                  <p className="subtitle is-5">View a complete report of your future car.</p>
+                  <p className="title is-3" style={{ paddingTop: "0.5em" }}>
+                    Buyer Friendly
+                  </p>
+                  <p className="subtitle is-5" style={{ paddingTop: "1em" }}>
+                    View a complete report of your future car.
+                  </p>
                 </div>
               </div>
               <div className="column">
@@ -62,8 +72,12 @@ class FrontPage extends Component {
                   <span className="features-icons-icon icon is-large">
                     <i class="fas fa-chart-bar fa-5x" aria-hidden="true"></i>
                   </span>
-                  <h3 className="title is-3">History &amp; Analytics</h3>
-                  <p className="subtitle is-5">See a detailed history and overall health of your car, down to specific parts.</p>
+                  <p className="title is-3" style={{ paddingTop: "0.5em" }}>
+                    History &amp; Analytics
+                  </p>
+                  <p className="subtitle is-5" style={{ paddingTop: "1em" }}>
+                    See a detailed history and overall health of your car, down to specific parts.
+                  </p>
                 </div>
               </div>
               <div className="column">
@@ -71,8 +85,12 @@ class FrontPage extends Component {
                   <span className="features-icons-icon icon is-large">
                     <i class="fas fa-lock fa-5x" aria-hidden="true"></i>
                   </span>
-                  <h3 className="title is-3">Secure</h3>
-                  <p className="subtitle is-5">Using blockchain techonology, your data is guaranteed tamper free.</p>
+                  <p className="title is-3" style={{ paddingTop: "0.5em" }}>
+                    Secure
+                  </p>
+                  <p className="subtitle is-5" style={{ paddingTop: "1em" }}>
+                    Using blockchain techonology, your data is guaranteed tamper free.
+                  </p>
                 </div>
               </div>
             </div>
@@ -82,21 +100,22 @@ class FrontPage extends Component {
         {/*<!-- Image Showcases -->*/}
         <section className="section showcase">
           <div className="container is-fluid">
-            <div className="columns is-multiline">
+            <div className="columns is-multiline" 
+              style={{boxShadow: "0 2px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}}>
               <div className="column is-half showcase-img">
                 <img src={deviceImg} alt=""/>
               </div>
               <div className="column is-half has-text-centered showcase-text"
               	style={{ marginBottom: "0px", paddingTop: "10%"}}>
-                <h2 className="title is-2">Use our device.</h2>
-                <p className="subtitle is-6">
+                <p className="title is-2">Use our device.</p>
+                <p className="subtitle is-5" style={{ paddingTop: "1em" }}>
                 	Just plug the easy to use device into your vehicle to start tracking.
                 </p>
               </div>
               <div className="column is-half has-text-centered showcase-text"
               	style={{ marginBottom: "0px", paddingTop: "10%" }}>
-                <h2 className="title is-2">View Part Health</h2>
-                <p className="subtitle is-6">
+                <p className="title is-2">View Part Health</p>
+                <p className="subtitle is-5" style={{ paddingTop: "1em" }}>
                 	See the current conditions each part of your vehicle.
                 </p>
               </div>
@@ -108,8 +127,8 @@ class FrontPage extends Component {
               </div>
               <div className="column is-half has-text-centered showcase-text"
               	style={{ paddingTop: "10%" }}>
-                <h2 className="title is-2">See the Data</h2>
-                <p className="subtitle is-6">
+                <p className="title is-2">See the Data</p>
+                <p className="subtitle is-5" style={{ paddingTop: "1em" }}>
                 	Get real time data on your car and see the trends based on your driving performance.
                 </p>
               </div>
@@ -120,28 +139,46 @@ class FrontPage extends Component {
         {/*<!-- Testimonials -->*/}
         <section className="section testimonials has-text-centered">
           <div className="container">
-            <h2 className="title is-5">What people are saying...</h2>
+            <p className="title is-3">What people are saying...</p>
             <div className="columns">
               <div className="column">
-                <figure className="image is-128x128" style={{ margin: "auto"}}>
-                  <img className="is-rounded" src={dom} alt="Insert Dominic's Face Here" />
-                </figure>
-                <h5>Dom P.</h5>
-                <p className="subtitle is-6">"The device was easy to use. Now I can keep track of my car's health!"</p>
+                <div className="card" style={{ height: "400px" }}>
+                  <div className="card-image">
+                    <figure className="image" style={{ margin: "auto", paddingTop: "1rem", maxWidth: "256px" }}>
+                      <img className="is-rounded" src={dom} alt="Insert Dominic's Face Here" />
+                    </figure>
+                  </div>
+                  <div className="card-content">
+                    <p className="title is-4">Dom P.</p>
+                    <p className="subtitle is-6">"The device was easy to use. Now I can keep track of my car's health!"</p>
+                  </div>
+                </div>
               </div>
               <div className="column">
-                <figure className="image is-128x128" style={{ margin: "auto"}}>
-                  <img className="is-rounded" src={phil} alt="Insert Dominic's Face Here" />
-                </figure>
-                <h5>Phil R.</h5>
-                <p className="subtitle is-6">"This is fantastic! My car is in better shape now. Thanks!"</p>
+                <div className="card" style={{ height: "400px" }}>
+                  <div className="card-image">
+                    <figure className="image" style={{ margin: "auto", paddingTop: "1rem", maxWidth: "256px" }}>
+                      <img className="is-rounded" src={phil} alt="Insert Dominic's Face Here" />
+                    </figure>
+                  </div>
+                  <div className="card-content">
+                    <p className="title is-4">Phil R.</p>
+                    <p className="subtitle is-6">"This is fantastic! My car is in better shape now. Thanks!"</p>
+                  </div>
+                </div>
               </div>
               <div className="column">
-                <figure className="image is-128x128" style={{ margin: "auto"}}>
-                  <img className="is-rounded" src={dave} alt="Insert Dominic's Face Here" />
-                </figure>
-                <h5>Dave B.</h5>
-                <p className="subtitle is-6">"I learned to take better care of my car!"</p>
+                <div className="card" style={{ height: "400px" }}>
+                  <div className="card-image">
+                    <figure className="image" style={{ margin: "auto", paddingTop: "1rem", maxWidth: "256px" }}>
+                      <img className="is-rounded" src={dave} alt="Insert Dominic's Face Here" />
+                    </figure>
+                  </div>
+                  <div className="card-content">
+                    <p className="title is-4">Dave B.</p>
+                    <p className="subtitle is-6">"I learned to take better care of my car!"</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -152,35 +189,59 @@ class FrontPage extends Component {
           <div className="overlay"></div>
           <div className="container">
             <div className="columns is-multiline">
-              <div className="column is-12">
+              <div className="column is-fullwidth" style={{ paddingTop: "1.5rem" }}>
                 <h2 className="title is-2 has-text-white">Ready to get started? Sign up now!</h2>
               </div>
             </div>
-              <div className="columns is-centered is-fullwidth">
-                <form>
-                  <div className="field is-grouped">
-                    <div className="control">
-                      <input type="email" className="input is-medium" placeholder="Enter your email..." />
+              <div className="columns is-centered" style={{ marginTop: "1em" }}>
+                <div className="column is-half">
+                  <form>
+                    <div className="field is-grouped">
+                      <div className="control is-expanded">
+                        <input type="email" className="input is-medium" placeholder="Enter your email..." />
+                      </div>
+                      <div className="control">
+                        <button type="submit" className="button is-medium is-info">Sign up!</button>
+                      </div>
                     </div>
-                    <div className="control">
-                      <button type="submit" className="button is-medium is-info">Sign up!</button>
-                    </div>
-                  </div>
-                </form>
+                  </form>
+                </div>
               </div>
             </div>
         </section>
 
         {/*<!-- Footer -->*/}
         <footer className="footer">
-          <div className="content has-text-centered">
-            <p>
-              Blame Dominic
-            </p>
-           	<hr/>
-            <p>
-            	<i class="fab fa-github"/><a href="https://github.com/philliprognerud/senior-project-blockchain" > GitHub</a>
-            </p>
+          <div className="container">
+            <div className="columns">
+              <div className="column">
+                  <p>
+                    <a href="/landingpage">About</a>
+                    &nbsp;&sdot;&nbsp;
+                    <a href="/landingpage">Contact</a>
+                    &nbsp;&sdot;&nbsp;
+                    <a href="/landingpage">Terms of Use</a>
+                    &nbsp;&sdot;&nbsp;
+                    <a href="/landingpage">Privacy Policy</a>
+                  </p>
+                  <p>
+                    &copy; Blockchain Car ID &amp; Analytics 2019. All Rights Reserved.
+                  </p>
+              </div>
+              <div className="column">
+                <p className="is-pulled-right">
+                  <a href="/landingpage">
+                    <i className="fab fa-facebook fa-2x fa-fw"></i>
+                  </a> &nbsp;
+                  <a href="/landingpage">
+                    <i className="fab fa-twitter-square fa-2x fa-fw"></i>
+                  </a> &nbsp;
+                  <a href="/landingpage">
+                    <i className="fab fa-instagram fa-2x fa-fw"></i>
+                  </a>
+                </p>
+              </div>
+            </div>
           </div>
         </footer>
   		</div>

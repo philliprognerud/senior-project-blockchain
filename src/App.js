@@ -12,7 +12,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Route path="/" component={Navbar} />
-            <Route path="/frontpage" component={FrontPage} />
+            <Route path="/landingpage" component={FrontPage} />
           </div>
         </BrowserRouter>
       </div>

@@ -19,6 +19,7 @@ import {
 } from "reactstrap";
 
 import dashboardRoutes from "routes/dashboard.jsx";
+import axios from "axios"
 
 class Header extends React.Component {
   constructor(props) {
@@ -104,6 +105,13 @@ class Header extends React.Component {
       this.refs.sidebarToggle.classList.toggle("toggled");
     }
   }
+
+  logout = async () => {
+    let res = await axios.get("http://localhost:8081/auth/logout");
+
+    window.location = "/";
+  }
+
   render() {
     return (
       // add or remove classes depending if we are on full-screen-maps page or not
@@ -147,7 +155,7 @@ class Header extends React.Component {
             navbar
             className="justify-content-end"
           >
-            <form>
+            <form style={{width:"35%"}}>
               <InputGroup className="no-border">
                 <Input placeholder="Search..." />
                 <InputGroupAddon addonType="append">
@@ -157,40 +165,23 @@ class Header extends React.Component {
                 </InputGroupAddon>
               </InputGroup>
             </form>
-            <Nav navbar>
-              <NavItem>
-                <Link to="#pablo" className="nav-link">
-                  <i className="now-ui-icons media-2_sound-wave" />
-                  <p>
-                    <span className="d-lg-none d-md-block">Stats</span>
-                  </p>
-                </Link>
-              </NavItem>
+            <Nav navbar style={{marginLeft: "25px"}}>
               <Dropdown
                 nav
                 isOpen={this.state.dropdownOpen}
                 toggle={e => this.dropdownToggle(e)}
               >
                 <DropdownToggle caret nav>
-                  <i className="now-ui-icons location_world" />
-                  <p>
-                    <span className="d-lg-none d-md-block">Some Actions</span>
-                  </p>
+                <i className="now-ui-icons users_single-02" />
+                <p>
+                  <span className="d-lg-none d-md-block">Account</span>
+                </p>
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem tag="a">Action</DropdownItem>
-                  <DropdownItem tag="a">Another Action</DropdownItem>
-                  <DropdownItem tag="a">Something else here</DropdownItem>
+                  <DropdownItem tag="a">Settings</DropdownItem>
+                  <DropdownItem tag="a" onClick={this.logout} style={{cursor: "pointer"}}>Logout</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
-              <NavItem>
-                <Link to="#pablo" className="nav-link">
-                  <i className="now-ui-icons users_single-02" />
-                  <p>
-                    <span className="d-lg-none d-md-block">Account</span>
-                  </p>
-                </Link>
-              </NavItem>
             </Nav>
           </Collapse>
         </Container>

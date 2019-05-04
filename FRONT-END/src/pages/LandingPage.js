@@ -14,6 +14,19 @@ const home = "/landing";
 class LandingPage extends Component {
 	constructor(props) {
     super(props);
+
+    this.state = {
+      signup: false,
+      login: false
+    }
+  }
+
+  toggleSignup = () => {
+    this.setState({signup: !this.state.signup})
+  }
+
+  toggleLogin = () => {
+    this.setState({login: !this.state.login})
   }
 
   render() {
@@ -29,15 +42,15 @@ class LandingPage extends Component {
                       </li>
                   </ul>
               </div>
-              <div class="mx-auto order-0">  
+              <div class="mx-auto order-0">
               </div>
               <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                   <ul class="navbar-nav ml-auto">
                       <li class="nav-item" style={{ marginRight: "1rem"}}>
-                          <SignUpButton />
+                          <SignUpButton modal={this.state.signup} toggle={this.toggleSignup} toggleLogin={this.toggleLogin}/>
                       </li>
                       <li class="nav-item">
-                          <LoginButton />
+                          <LoginButton modal={this.state.login} toggle={this.toggleLogin} toggleSignup={this.toggleSignup}/>
                       </li>
                   </ul>
               </div>

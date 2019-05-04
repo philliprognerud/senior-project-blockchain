@@ -49,9 +49,9 @@ class Chart extends React.Component {
         <PanelHeader
           content={
             <div className="header text-center">
-              <h2 className="title">{this.props.header}</h2>
+              <h2 className="title">{this.props.location.mainTitle}</h2>
               <p className="category">
-                See your Battery performance
+                {this.props.location.subMainTitle}
               </p>
             </div>
           }
@@ -64,8 +64,10 @@ class Chart extends React.Component {
                   <div className="places-buttons">
                     <Row>
                       <Col md={6} className="ml-auto mr-auto text-center">
-                        <CardTitle tag="h4">
+                        <CardTitle tag="h4"> 
+                          {this.props.location.chartTitle}
                           <p className="category">
+                            {this.props.location.chartSubTitle}
                           </p>
                         </CardTitle>
                       </Col>
@@ -79,7 +81,7 @@ class Chart extends React.Component {
                         </CardHeader>
                         <CardBody>
                           <div className="chart-area">
-                           {this.props.location.battery}
+                           {this.props.location.chart}
                           </div>
                         </CardBody>
                         <CardFooter>

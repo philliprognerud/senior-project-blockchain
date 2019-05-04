@@ -24,7 +24,7 @@ import { PanelHeader, Stats, CardCategory, Tasks } from "components";
 import {
   dashboardPanelChart,
   BatteryConsumption,
-  TripSpeeds,
+  TripDistance,
   averageSpeed,
   FuelChart,
   CarUsage,
@@ -55,10 +55,11 @@ class Dashboard extends React.Component {
         <div className="content">
           <Row>
             <Col xs={12} md={4}>
-              <Link to={{ pathname: '/chart', battery :   <Pie
+              <Link to={{ pathname: '/chart', chart :   <Pie
                       data={BatteryConsumption.data}
                       options={BatteryConsumption.options}
-                    />,
+                    />, mainTitle : 'Battery Usage', subMainTitle : 'See your Battery performance',
+                    chartTitle : 'Pie Chart', chartSubTitle: 'Watts'
               }}>
               <Card className="card-chart">
                 <CardHeader>
@@ -103,6 +104,12 @@ class Dashboard extends React.Component {
               </Link>
             </Col>
             <Col xs={12} md={4}>
+              <Link to={{ pathname: '/chart', chart :   <Line
+                data={TripDistance.data}
+                options={TripDistance.options}/>,mainTitle : 'Odometer', 
+                subMainTitle : 'See your Trip distance',
+                chartTitle : 'Line Graph', chartSubTitle: 'Miles'
+              }}>
               <Card className="card-chart">
                 <CardHeader>
                   <CardCategory>Trip Distance(Miles)</CardCategory>
@@ -111,8 +118,8 @@ class Dashboard extends React.Component {
                 <CardBody>
                   <div className="chart-area">
                     <Line
-                      data={TripSpeeds.data}
-                      options={TripSpeeds.options}
+                      data={TripDistance.data}
+                      options={TripDistance.options}
                     />
                   </div>
                 </CardBody>
@@ -127,8 +134,13 @@ class Dashboard extends React.Component {
                   </Stats>
                 </CardFooter>
               </Card>
+              </Link>
             </Col>
             <Col xs={12} md={4}>
+              <Link to={{ pathname: '/chart', chart :   <Bar
+                data={averageSpeed.data}
+                options={averageSpeed.options}/>, 
+              }}>
               <Card className="card-chart">
                 <CardHeader>
                   <CardCategory>Average Speed(MPH)</CardCategory>
@@ -148,10 +160,17 @@ class Dashboard extends React.Component {
                   </Stats>
                 </CardFooter>
               </Card>
+            </Link>
             </Col>
           </Row>
           <Row>
             <Col xs={12} md={4}>
+              <Link to={{ pathname: '/chart', chart :   <Line
+                data={FuelChart.data}
+                options={FuelChart.options}/>, mainTitle : 'Fuel Cost', 
+                subMainTitle : 'See how much Fuel you spent',
+                chartTitle : 'Line', chartSubTitle: 'USD'
+              }}>
               <Card className="card-chart">
                 <CardHeader>
                   <CardCategory>Fuel Costs($)</CardCategory>
@@ -192,8 +211,15 @@ class Dashboard extends React.Component {
                   </Stats>
                 </CardFooter>
               </Card>
+              </Link>
             </Col>
             <Col xs={12} md={4}>
+              <Link to={{ pathname: '/chart', chart :   <Bar
+                data={FuelUsageChart.data}
+                options={FuelUsageChart.options}/>,mainTitle : 'Fuel Consumed', 
+                subMainTitle : 'See how much fuel you have used',
+                chartTitle : 'Bar Graph', chartSubTitle: 'Gallons'
+              }}>
               <Card className="card-chart">
                 <CardHeader>
                   <CardCategory>Fuel Consumed(Gallons)</CardCategory>
@@ -233,11 +259,18 @@ class Dashboard extends React.Component {
                   </Stats>
                 </CardFooter>
               </Card>
+              </Link>
             </Col>
             <Col xs={12} md={4}>
+              <Link to={{ pathname: '/chart', chart :   <Pie
+                data={CarUsage.data}
+                options={CarUsage.options}/>, mainTitle : 'Fuel Usage', 
+                subMainTitle : 'See how you are using your car',
+                chartTitle : 'Pie Chart', chartSubTitle: 'Time'
+              }}>
               <Card className="card-chart">
                 <CardHeader>
-                  <CardCategory> Feburary </CardCategory>
+                  <CardCategory> Car State </CardCategory>
                   <CardTitle tag="h4">Car Usage</CardTitle>
                   <UncontrolledDropdown>
                     <DropdownToggle
@@ -274,6 +307,7 @@ class Dashboard extends React.Component {
                   </Stats>
                 </CardFooter>
               </Card>
+              </Link>
             </Col>
           </Row>
         </div>

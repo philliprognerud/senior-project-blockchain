@@ -297,7 +297,7 @@ const BatteryConsumption = {
 // // // Dashboard view - All Products - Card
 // #############################
 
-const TripSpeeds = {
+const TripDistance = {
   data: canvas => {
     var ctx = canvas.getContext("2d");
     var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
@@ -491,7 +491,6 @@ const FuelUsageChart = {
     };
   },
   options: getGradientChartOptionsConfigurationWithNumbersAndGrid("Fuel Used (Gallons)", "G")
-  
 };
 
 const CarUsage = {
@@ -534,15 +533,98 @@ const CarUsage = {
   options: gradientChartOptionsConfiguration
 };
 
+const TotalMilesDriven = {
+  data: canvas => {
+    var ctx = canvas.getContext("2d");
+    var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+    gradientStroke.addColorStop(0, "#ff5733");
+    gradientStroke.addColorStop(1, chartColor);
+    var gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
+    gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+    gradientFill.addColorStop(1, hexToRGB("#ff5733", 0.4));
+    return {
+       labels: [
+        "2011",
+        "2012",
+        "2013",
+        "2014",
+        "2015",
+        "2016",
+        "2017",
+        "2018"
+      ],
+      datasets: [
+        {
+          label: "Fuel Stats",
+          borderColor: "#ff5733",
+          pointBorderColor: "#FFF",
+          pointBackgroundColor: "#18ce0f",
+          pointBorderWidth: 2,
+          pointHoverRadius: 4,
+          pointHoverBorderWidth: 1,
+          pointRadius: 4,
+          fill: true,
+          backgroundColor: gradientFill,
+          borderWidth: 2,
+          data: [10500, 11961, 7313, 10435, 11333, 9725, 8461, 7423]
+        }
+      ]
+    };
+  },
+  options: getGradientChartOptionsConfigurationWithNumbersAndGrid("Fuel Used (Gallons)", "G")
+};
+
+const AverageMilesDriveLifeTime = {
+  data: canvas => {
+    var ctx = canvas.getContext("2d");
+    var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+    gradientStroke.addColorStop(0, "#ff5733");
+    gradientStroke.addColorStop(1, chartColor);
+    var gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
+    gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+    gradientFill.addColorStop(1, hexToRGB("#ff5733", 0.4));
+    return {
+       labels: [
+        "2011",
+        "2012",
+        "2013",
+        "2014",
+        "2015",
+        "2016",
+        "2017",
+        "2018"
+      ],
+      datasets: [
+        {
+          label: "Fuel Stats",
+          borderColor: "#ff5733",
+          pointBorderColor: "#FFF",
+          pointBackgroundColor: "#18ce0f",
+          pointBorderWidth: 2,
+          pointHoverRadius: 4,
+          pointHoverBorderWidth: 1,
+          pointRadius: 4,
+          fill: true,
+          backgroundColor: gradientFill,
+          borderWidth: 2,
+          data: [40, 42, 43, 44, 42, 45, 40, 43]
+        }
+      ]
+    };
+  },
+  options: getGradientChartOptionsConfigurationWithNumbersAndGrid("Fuel Used (Gallons)", "G")
+};
 
 
 
 module.exports = {
   dashboardPanelChart, // Chart for Dashboard view - Will be rendered in panel
   BatteryConsumption, // Chart for Dashboard view - Shipped Products Card
-  TripSpeeds, // Chart for Dashboard view - All products Card
+  TripDistance, // Chart for Dashboard view - All products Card
   averageSpeed, // Chart for Dashboard view - 24 Hours Performance Card
   FuelChart,
   CarUsage,
-  FuelUsageChart
+  FuelUsageChart,
+  TotalMilesDriven,
+  AverageMilesDriveLifeTime
 };

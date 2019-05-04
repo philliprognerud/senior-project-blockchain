@@ -5,11 +5,8 @@ const passport = require("passport");
 const bodyParser = require("body-parser");
 const keys = require("./config/keys");
 
-
-// require("../models/Product");
-// require("../models/User");
-// require("../models/Guest");
-// require("../authentication/passport");
+require("./models/User");
+require("./authentication/passport");
 
 mongoose.connect(keys.mongoURI);
 
@@ -35,7 +32,7 @@ app.use(
 
 app.use(bodyParser.json());
 
-// require("../routes/authRoutes")(app);
+require("./routes/authRoutes")(app);
 // require("../routes/supplierRoutes")(app);
 // require("../routes/queries")(app);
 

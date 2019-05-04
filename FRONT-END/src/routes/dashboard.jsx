@@ -7,25 +7,25 @@ import YourCar from "views/YourCar/YourCar.js";
 
 var dashRoutes = [
   {
-    path: "/dashboard",
+    path: "/dashboard/home",
     name: "Dashboard",
     icon: "design_app",
     component: Dashboard
   },
   {
-    path: "/car-history",
+    path: "/dashboard/car-history",
     name: "All-Time Car History",
     icon: "tech_watch-time",
     component: Notifications
   },
   {
-    path: "/yourcar",
+    path: "/dashboard/yourcar",
     name: "Your Car",
     icon: "tech_watch-time",
     component: YourCar
   },
   {
-    path: "/chart",
+    path: "/dashboard/chart",
     name: "Chart",
     component: Chart
   }

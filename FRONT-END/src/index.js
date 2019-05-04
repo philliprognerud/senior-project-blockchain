@@ -16,7 +16,12 @@ ReactDOM.render(
   <Router history={hist}>
     <Switch>
       {indexRoutes.map((prop, key) => {
-        return <Route path={prop.path} key={key} component={prop.component} />;
+        if(prop.path === "/"){
+          return <Route exact path={prop.path} key={key} component={prop.component} />;
+        } else {
+          return <Route path={prop.path} key={key} component={prop.component} />;
+        }
+
       })}
       <Route path="/landing" component={LandingPage} />
     </Switch>

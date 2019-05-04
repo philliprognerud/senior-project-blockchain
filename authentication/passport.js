@@ -37,64 +37,64 @@ passport.use(
   })
 );
 
-//Facebook Authentication
-passport.use(
-  new FacebookStrategy(
-    {
-      clientID: keys.facebookID,
-      clientSecret: keys.facebookSecret,
-      callbackURL:
-        "https://a07cae693dbc4ff0b97e09bfc02303fc.vfs.cloud9.us-west-2.amazonaws.com/auth/facebook/callback",
-      profileFields: ["id", "name", "email"]
-    },
-    async function(accessToken, refreshToken, profile, done) {
-      const existingUser = await User.findOne({
-        "facebookAuth.id": profile.id
-      });
-
-      if (existingUser) {
-        return done(null, existingUser);
-      }
-
-      const user = await new User({
-        facebookAuth: {
-          id: profile.id,
-          firstName: profile.name.givenName,
-          lastName: profile.name.familyName
-        }
-      }).save();
-
-      return done(null, user);
-    }
-  )
-);
-
-//Google Authentication
-passport.use(
-  new GoogleStrategy(
-    {
-      clientID: keys.googleID,
-      clientSecret: keys.googleSecret,
-      callbackURL:
-        "https://a07cae693dbc4ff0b97e09bfc02303fc.vfs.cloud9.us-west-2.amazonaws.com/auth/google/callback"
-    },
-    async function(accessToken, refreshToken, profile, done) {
-      const existingUser = await User.findOne({
-        "googleAuth.id": profile.id
-      });
-
-      if (existingUser) {
-        return done(null, existingUser);
-      }
-
-      const user = await new User({
-        googleAuth: {
-          id: profile.id,
-          name: profile.displayName
-        }
-      }).save();
-
-      return done(null, user);
-    }
-  )
-);
+// //Facebook Authentication
+// passport.use(
+//   new FacebookStrategy(
+//     {
+//       clientID: keys.facebookID,
+//       clientSecret: keys.facebookSecret,
+//       callbackURL:
+//         "https://a07cae693dbc4ff0b97e09bfc02303fc.vfs.cloud9.us-west-2.amazonaws.com/auth/facebook/callback",
+//       profileFields: ["id", "name", "email"]
+//     },
+//     async function(accessToken, refreshToken, profile, done) {
+//       const existingUser = await User.findOne({
+//         "facebookAuth.id": profile.id
+//       });
+//
+//       if (existingUser) {
+//         return done(null, existingUser);
+//       }
+//
+//       const user = await new User({
+//         facebookAuth: {
+//           id: profile.id,
+//           firstName: profile.name.givenName,
+//           lastName: profile.name.familyName
+//         }
+//       }).save();
+//
+//       return done(null, user);
+//     }
+//   )
+// );
+//
+// //Google Authentication
+// passport.use(
+//   new GoogleStrategy(
+//     {
+//       clientID: keys.googleID,
+//       clientSecret: keys.googleSecret,
+//       callbackURL:
+//         "https://a07cae693dbc4ff0b97e09bfc02303fc.vfs.cloud9.us-west-2.amazonaws.com/auth/google/callback"
+//     },
+//     async function(accessToken, refreshToken, profile, done) {
+//       const existingUser = await User.findOne({
+//         "googleAuth.id": profile.id
+//       });
+//
+//       if (existingUser) {
+//         return done(null, existingUser);
+//       }
+//
+//       const user = await new User({
+//         googleAuth: {
+//           id: profile.id,
+//           name: profile.displayName
+//         }
+//       }).save();
+//
+//       return done(null, user);
+//     }
+//   )
+// );

@@ -9,7 +9,7 @@ middlewareObj.isLoggedIn = (req, res, next) => {
     return next();
   }
 
-  res.send(null);
+  res.send({loggedin: false});
 };
 
 middlewareObj.usernameAvail = async (req, res, next) => {

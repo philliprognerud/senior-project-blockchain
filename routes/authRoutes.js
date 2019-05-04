@@ -25,47 +25,53 @@ module.exports = app => {
     })(req, res, next);
   });
 
-  // app.get("/auth/logout", function(req, res) {
-  //   req.logout();
-  //   res.redirect("/");
-  // });
-  //
-  // app.get("/auth/loggedin", middleware.isLoggedIn, function(req, res) {
-  //   res.send(req.user);
-  // });
-  //
-  // app.post(
-  //   "/auth/signup",
-  //   middleware.usernameAvail,
-  //   middleware.emailAvail,
-  //   async function(req, res, next) {
-  //     if (req.usernameTaken || req.emailTaken) {
-  //       res.send({
-  //         usernameTaken: req.usernameTaken,
-  //         emailTaken: req.emailTaken,
-  //         accountCreated: false
-  //       });
-  //
-  //       return next();
-  //     }
-  //
-  //     const newUser = await middleware.createAccount(
-  //       req.body.username,
-  //       req.body.password,
-  //       req.body.email,
-  //       req.body.zipCode
-  //     );
-  //
-  //     res.send({ accountCreated: true });
-  //
-  //     req.login(newUser, err => {
-  //       if (err) {
-  //         return next(err);
-  //       }
-  //     });
-  //   }
-  // );
-  //
+  app.get("/auth/logout", function(req, res) {
+    req.logout();
+    res.redirect("/");
+  });
+
+  app.get("/auth/loggedin", middleware.isLoggedIn, function(req, res) {
+    res.status(200).send({loggedin: true});
+  });
+
+  app.post(
+    "/auth/signup",
+    middleware.usernameAvail,
+    middleware.emailAvail,
+    async function(req, res, next) {
+      console.log(req.body);
+
+      if (req.usernameTaken || req.emailTaken) {
+        res.send({
+          usernameTaken: req.usernameTaken,
+          emailTaken: req.emailTaken,
+          accountCreated: false
+        });
+
+        return next();
+      }
+
+      console.log("before creating account")
+
+      const newUser = await middleware.createAccount(
+        req.body.username,
+        req.body.password,
+        req.body.email,
+        req.body.zipCode
+      );
+
+      console.log("here I am")
+
+      res.send({ accountCreated: true });
+
+      req.login(newUser, err => {
+        if (err) {
+          return next(err);
+        }
+      });
+    }
+  );
+
   // app.get("/auth/facebook", passport.authenticate("facebook"));
   //
   // app.get(

@@ -6,12 +6,18 @@ import {
   CardBody,
   CardHeader,
   Row,
-  Col
+  Col,Table
 } from "reactstrap";
 // react plugin for creating notifications over the dashboard
 import NotificationAlert from "react-notification-alert";
+import {
+  TotalMilesDriven,
+  AverageMilesDriveLifeTime
+} from "variables/charts.jsx";
 
 import { PanelHeader, Button } from "components";
+import { Line, Bar, Pie } from "react-chartjs-2";
+
 
 class Notifications extends React.Component {
   constructor(props) {
@@ -84,6 +90,13 @@ class Notifications extends React.Component {
                 </CardHeader>
                 <CardBody>
                   Total miles driven every year
+                 <div className="chart-area">
+                    <Bar
+                      data={TotalMilesDriven.data}
+                      options={TotalMilesDriven.options}
+                    />
+                  </div>
+                  
                 </CardBody>
               </Card>
             </Col>
@@ -94,9 +107,142 @@ class Notifications extends React.Component {
                 </CardHeader>
                 <CardBody>
                   Average miles per hour over the lifespan of the car by year
+                  <div className="chart-area">
+                    <Bar
+                      data={AverageMilesDriveLifeTime.data}
+                      options={AverageMilesDriveLifeTime.options}
+                    />
+                  </div>
                 </CardBody>
               </Card>
             </Col>
+          </Row>
+          <Row>
+            <Col md={6} xs={12}>
+              <Card>
+                <CardHeader>
+                  <CardTitle tag="h4">Collisions</CardTitle>
+                    <CardBody>
+                      <ul> 
+                        <li>2013: Rear End Collision</li>
+                        <li>2016: Side Mirror Damage</li>
+                      </ul>
+                    </CardBody>
+                </CardHeader>
+                <CardBody>
+                </CardBody>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle tag="h4">Owners</CardTitle>
+                  <CardBody>
+                  <Table responsive>
+                    <thead className=" text-primary">
+                      <tr>
+                        <th>Year</th>
+                        <th>Location</th>
+                        <th>Miles Driven</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>2011</td>
+                        <td>San Jose</td>
+                        <td>23443</td>
+                      </tr>
+                      <tr>
+                        <td>2014</td>
+                        <td>San Jose</td>
+                        <td>43377</td>
+                      </tr>
+                    </tbody>
+                   </Table>
+                  </CardBody>
+                </CardHeader>
+              </Card>
+            </Col>
+            <Col md={6} xs={12}>
+              <Card>
+                <CardHeader>
+                  <CardTitle tag="h4">Service History</CardTitle>
+                  <CardBody>
+                  <Table responsive>
+                    <thead className=" text-primary">
+                      <tr>
+                        <th>Year</th>
+                        <th>Reason</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>April 2, 2011</td>
+                        <td>Oil Change</td>
+                      </tr>
+                      <tr>
+                        <td>December 9, 2011</td>
+                        <td>Oil Change</td>
+                      </tr>
+                      <tr>
+                        <td>March 6, 2012</td>
+                        <td>Oil Change</td>
+                      </tr>
+                      <tr>
+                        <td>November 8, 2012</td>
+                        <td>Oil Change</td>
+                      </tr>
+                      <tr>
+                        <td>January, 2014</td>
+                        <td>Oil Change</td>
+                      </tr>
+                      <tr>
+                        <td>"August 8, 2014"</td>
+                        <td>Oil Change</td>
+                      </tr>
+                      <tr>
+                        <td>Febuary 25, 2015</td>
+                        <td>Oil Change</td>
+                      </tr>
+                      <tr>
+                        <td>September 16, 2015</td>
+                        <td>Oil Change</td>
+                      </tr>
+                      <tr>
+                        <td>January 31, 2016</td>
+                        <td>Oil Change</td>
+                      </tr>
+                      <tr>
+                        <td>July 16, 2016</td>
+                        <td>Oil Change</td>
+                      </tr>
+                      <tr>
+                        <td>March 25, 2017</td>
+                        <td>Oil Change</td>
+                      </tr>
+                      <tr>
+                        <td>December 29, 2017</td>
+                        <td>Oil Change</td>
+                      </tr>
+                      <tr>
+                        <td>June 12, 2018</td>
+                        <td>Oil Change</td>
+                      </tr>
+                      <tr>
+                        <td>November 23, 2018</td>
+                        <td>Oil Change</td>
+                      </tr>
+
+                    </tbody>
+                   </Table>
+                  </CardBody>
+                </CardHeader>
+              </Card>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={6} xs={12}>
+            </Col>
+          </Row>
+          <Row>
             <Col md={12} xs={12}>
               <Card>
                 <CardBody>

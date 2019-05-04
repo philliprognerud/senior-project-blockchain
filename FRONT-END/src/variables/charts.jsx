@@ -113,7 +113,7 @@ function getGradientChartOptionsConfigurationWithNumbersAndGrid(yLabel, yUnit ){
          ticks: {
               callback: function(value, index, values) {
                       return value + yUnit;
-              }
+              },
           }
         }
       ],
@@ -571,7 +571,7 @@ const TotalMilesDriven = {
       ]
     };
   },
-  options: getGradientChartOptionsConfigurationWithNumbersAndGrid("Fuel Used (Gallons)", "G")
+  options: getGradientChartOptionsConfigurationWithNumbersAndGrid("Miles Driven", "Mi")
 };
 
 const AverageMilesDriveLifeTime = {
@@ -612,7 +612,7 @@ const AverageMilesDriveLifeTime = {
       ]
     };
   },
-  options: getGradientChartOptionsConfigurationWithNumbersAndGrid("Fuel Used (Gallons)", "G")
+  options: getGradientChartOptionsConfigurationWithNumbersAndGrid("Average MPH", "MPH")
 };
 
 

@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 import Navbar from "./components/navbar/navbar";
 import FrontPage from "./pages/FrontPage.js";
+import LandingPage from "./pages/LandingPage.js";
 
 class App extends Component {
   render() {
@@ -11,8 +12,8 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
           <div>
-            <Route path="/" component={Navbar} />
-            <Route path="/landingpage" component={FrontPage} />
+            <Route path="/frontpage" component={FrontPage} />
+            <Route path="/landing" component={LandingPage} />
           </div>
         </BrowserRouter>
       </div>

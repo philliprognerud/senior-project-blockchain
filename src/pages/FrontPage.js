@@ -6,6 +6,8 @@ import data from "../components/images/data.jpg"
 import dom from "../components/images/dom.jpg";
 import phil from "../components/images/phil.jpg";
 import dave from "../components/images/dave.jpg";
+import Navbar from "../components/navbar/navbar";
+//import "bulma/css/bulma.css";
 
 
 class FrontPage extends Component {
@@ -16,6 +18,7 @@ class FrontPage extends Component {
   render() {
   	return (
   		<div>
+        <Navbar />
         {/*<!-- Masthead -->*/}
         <header className="hero">
           <div className="overlay"></div>
@@ -27,7 +30,7 @@ class FrontPage extends Component {
                     style={{ textShadow: "0 2px 8px rgba(0,0,0,2)"}}>
                     Car ID &amp; Analytics
                   </p>
-                  <p class="subtitle is-3 has-text-white" 
+                  <p className="subtitle is-3 has-text-white" 
                     style={{ textShadow: "0 2px 8px rgba(0,0,0,2)"}}>
                     Get your car's health history
                   </p>
@@ -57,7 +60,7 @@ class FrontPage extends Component {
               <div className="column">
                 <div className="features-icons-item">
                   <span className="features-icons-icon icon is-large">
-                    <i class="fas fa-car fa-5x" aria-hidden="true"></i>
+                    <i className="fas fa-car fa-5x" aria-hidden="true"></i>
                   </span>
                   <p className="title is-3" style={{ paddingTop: "0.5em" }}>
                     Buyer Friendly
@@ -70,7 +73,7 @@ class FrontPage extends Component {
               <div className="column">
                 <div className="features-icons-item">
                   <span className="features-icons-icon icon is-large">
-                    <i class="fas fa-chart-bar fa-5x" aria-hidden="true"></i>
+                    <i className="fas fa-chart-bar fa-5x" aria-hidden="true"></i>
                   </span>
                   <p className="title is-3" style={{ paddingTop: "0.5em" }}>
                     History &amp; Analytics
@@ -83,7 +86,7 @@ class FrontPage extends Component {
               <div className="column">
                 <div className="features-icons-item">
                   <span className="features-icons-icon icon is-large">
-                    <i class="fas fa-lock fa-5x" aria-hidden="true"></i>
+                    <i className="fas fa-lock fa-5x" aria-hidden="true"></i>
                   </span>
                   <p className="title is-3" style={{ paddingTop: "0.5em" }}>
                     Secure

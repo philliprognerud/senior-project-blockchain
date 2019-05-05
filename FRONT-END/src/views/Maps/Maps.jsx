@@ -101,13 +101,10 @@ const MapWrapper = withScriptjs(
 class FullScreenMap extends React.Component {
   render() {
     return (
-      <div>
-        <PanelHeader size="sm" />
-        <div className="content">
           <Row>
             <Col xs={12}>
               <Card>
-                <CardHeader>Google Maps</CardHeader>
+                <CardHeader>Car Geolocation Heat-map</CardHeader>
                 <CardBody>
                   <div
                     id="map"
@@ -115,7 +112,7 @@ class FullScreenMap extends React.Component {
                     style={{ position: "relative", overflow: "hidden" }}
                   >
                     <MapWrapper
-                      googleMapURL="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"
+                      googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIhqsS3Na4OrZ5aby-f-yR7rg5JswUG60"
                       loadingElement={<div style={{ height: `100%` }} />}
                       containerElement={<div style={{ height: `100%` }} />}
                       mapElement={<div style={{ height: `100%` }} />}
@@ -125,8 +122,6 @@ class FullScreenMap extends React.Component {
               </Card>
             </Col>
           </Row>
-        </div>
-      </div>
     );
   }
 }

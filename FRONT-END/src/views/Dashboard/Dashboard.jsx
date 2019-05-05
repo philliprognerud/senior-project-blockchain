@@ -17,7 +17,7 @@ import {
 // react plugin used to create charts
 import { Line, Bar, Pie } from "react-chartjs-2";
 
-// function that returns a color based on an interval of numbers
+import Map from "../Maps/Maps.jsx"
 
 import { PanelHeader, Stats, CardCategory, Tasks } from "components";
 
@@ -106,7 +106,7 @@ class Dashboard extends React.Component {
             <Col xs={12} md={4}>
               <Link to={{ pathname: '/chart', chart :   <Line
                 data={TripDistance.data}
-                options={TripDistance.options}/>,mainTitle : 'Odometer', 
+                options={TripDistance.options}/>,mainTitle : 'Odometer',
                 subMainTitle : 'See your Trip distance',
                 chartTitle : 'Line Graph', chartSubTitle: 'Miles'
               }}>
@@ -139,7 +139,7 @@ class Dashboard extends React.Component {
             <Col xs={12} md={4}>
               <Link to={{ pathname: '/chart', chart :   <Bar
                 data={averageSpeed.data}
-                options={averageSpeed.options}/>, 
+                options={averageSpeed.options}/>,
               }}>
               <Card className="card-chart">
                 <CardHeader>
@@ -167,7 +167,7 @@ class Dashboard extends React.Component {
             <Col xs={12} md={4}>
               <Link to={{ pathname: '/chart', chart :   <Line
                 data={FuelChart.data}
-                options={FuelChart.options}/>, mainTitle : 'Fuel Cost', 
+                options={FuelChart.options}/>, mainTitle : 'Fuel Cost',
                 subMainTitle : 'See how much Fuel you spent',
                 chartTitle : 'Line', chartSubTitle: 'USD'
               }}>
@@ -216,7 +216,7 @@ class Dashboard extends React.Component {
             <Col xs={12} md={4}>
               <Link to={{ pathname: '/chart', chart :   <Bar
                 data={FuelUsageChart.data}
-                options={FuelUsageChart.options}/>,mainTitle : 'Fuel Consumed', 
+                options={FuelUsageChart.options}/>,mainTitle : 'Fuel Consumed',
                 subMainTitle : 'See how much fuel you have used',
                 chartTitle : 'Bar Graph', chartSubTitle: 'Gallons'
               }}>
@@ -264,7 +264,7 @@ class Dashboard extends React.Component {
             <Col xs={12} md={4}>
               <Link to={{ pathname: '/chart', chart :   <Pie
                 data={CarUsage.data}
-                options={CarUsage.options}/>, mainTitle : 'Fuel Usage', 
+                options={CarUsage.options}/>, mainTitle : 'Fuel Usage',
                 subMainTitle : 'See how you are using your car',
                 chartTitle : 'Pie Chart', chartSubTitle: 'Time'
               }}>
@@ -310,6 +310,7 @@ class Dashboard extends React.Component {
               </Link>
             </Col>
           </Row>
+          <Map/>
         </div>
       </div>
     );

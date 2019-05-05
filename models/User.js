@@ -3,10 +3,9 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   localAuth: {
-    username: String,
-    password: String,
+    name: String,
     email: String,
-    zipCode: String
+    password: String
   },
   facebookAuth: {
     id: String,

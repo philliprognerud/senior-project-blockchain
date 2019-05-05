@@ -22,6 +22,10 @@ class LoginButton extends Component {
     }
   }
 
+  google = async () => {
+    window.location = "http://localhost:8081/auth/google"
+  }
+
 
   render(){
     const loginForm = (
@@ -56,7 +60,7 @@ class LoginButton extends Component {
             <div className="row my-3 d-flex justify-content-center">
               <button type="button" className="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i className="fab fa-facebook-f text-center"></i></button>
               <button type="button" className="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i className="fab fa-twitter"></i></button>
-              <button type="button" className="btn btn-white btn-rounded z-depth-1a"><i className="fab fa-google-plus-g"></i></button>
+              <button type="button" className="btn btn-white btn-rounded z-depth-1a" onClick={this.google}><i className="fab fa-google-plus-g"></i></button>
             </div>
           </div>
         </div>

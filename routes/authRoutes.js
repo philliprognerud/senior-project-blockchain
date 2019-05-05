@@ -7,6 +7,7 @@ const paypal = require("paypal-rest-sdk");
 
 module.exports = app => {
   app.post("/auth/login", async function(req, res, next) {
+    console.log(req.body)
     passport.authenticate("local", async function(err, user, info) {
       if (err) {
         return next(err);
@@ -27,7 +28,7 @@ module.exports = app => {
 
   app.get("/auth/logout", function(req, res) {
     req.logout();
-    res.redirect("/");
+    res.status(200).send({loggedout: true});
   });
 
   app.get("/auth/loggedin", middleware.isLoggedIn, function(req, res) {
@@ -36,14 +37,10 @@ module.exports = app => {
 
   app.post(
     "/auth/signup",
-    middleware.usernameAvail,
     middleware.emailAvail,
     async function(req, res, next) {
-      console.log(req.body);
-
-      if (req.usernameTaken || req.emailTaken) {
+      if (req.emailTaken) {
         res.send({
-          usernameTaken: req.usernameTaken,
           emailTaken: req.emailTaken,
           accountCreated: false
         });
@@ -51,16 +48,11 @@ module.exports = app => {
         return next();
       }
 
-      console.log("before creating account")
-
       const newUser = await middleware.createAccount(
-        req.body.username,
-        req.body.password,
+        req.body.name,
         req.body.email,
-        req.body.zipCode
+        req.body.password
       );
-
-      console.log("here I am")
 
       res.send({ accountCreated: true });
 
@@ -72,27 +64,20 @@ module.exports = app => {
     }
   );
 
-  // app.get("/auth/facebook", passport.authenticate("facebook"));
-  //
-  // app.get(
-  //   "/auth/facebook/callback",
-  //   passport.authenticate("facebook", { failureRedirect: "/" }),
-  //   function(req, res) {
-  //     res.redirect("/");
-  //   }
-  // );
-  //
-  // app.get(
-  //   "/auth/google",
-  //   passport.authenticate("google", { scope: ["profile"] })
-  // );
-  //
-  // app.get(
-  //   "/auth/google/callback",
-  //   passport.authenticate("google", { failureRedirect: "/" }),
-  //   function(req, res) {
-  //     res.redirect("/");
-  //   }
-  // );
+  app.get('/auth/google', passport.authenticate('google', {
+      scope: [
+          'https://www.googleapis.com/auth/userinfo.profile',
+          'https://www.googleapis.com/auth/userinfo.email'
+      ]
+  }));
+
+  app.get(
+    "/auth/google/callback",
+    passport.authenticate("google", { failureRedirect: "/" }),
+    function(req, res) {
+
+      res.redirect("http://localhost:3000/dashboard/home");
+    }
+  );
 
 };

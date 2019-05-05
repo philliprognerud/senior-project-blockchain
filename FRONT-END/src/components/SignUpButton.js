@@ -10,7 +10,6 @@ class SignUpButton extends Component {
 
 
   submitData = async () => {
-    console.log("here I am")
     let res = await axios.post("http://localhost:8081/auth/signup", {
       name: this.name.value,
       email: this.email.value,
@@ -23,6 +22,10 @@ class SignUpButton extends Component {
         this.props.toggleLogin();
       }, 500);
     }
+  }
+
+  google = async () => {
+    window.location = "http://localhost:8081/auth/google"
   }
 
 
@@ -62,7 +65,7 @@ class SignUpButton extends Component {
             <div className="row my-3 d-flex justify-content-center">
               <button type="button" className="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i className="fab fa-facebook-f text-center"></i></button>
               <button type="button" className="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i className="fab fa-twitter"></i></button>
-              <button type="button" className="btn btn-white btn-rounded z-depth-1a"><i className="fab fa-google-plus-g"></i></button>
+              <button type="button" className="btn btn-white btn-rounded z-depth-1a" onClick={this.google}><i className="fab fa-google-plus-g"></i></button>
             </div>
           </div>
         </div>

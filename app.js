@@ -5,13 +5,15 @@ const passport = require("passport");
 const bodyParser = require("body-parser");
 const keys = require("./config/keys");
 
+var cors = require('cors')
+
 require("./models/User");
 require("./authentication/passport");
 
 mongoose.connect(keys.mongoURI);
 
 const app = express();
-
+app.use(cors())
 app.use(
   session({
     secret: keys.cookieKey,
@@ -28,7 +30,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 require("./routes/authRoutes")(app);
 // require("../routes/supplierRoutes")(app);

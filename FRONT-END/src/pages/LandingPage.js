@@ -9,7 +9,7 @@ import dave from "../components/images/dave.jpg";
 import SignUpButton from "../components/SignUpButton";
 import LoginButton from "../components/LoginButton";
 import "bootstrap/dist/css/bootstrap.css";
-const home = "/landing";
+const home = "/";
 
 class LandingPage extends Component {
 	constructor(props) {
@@ -33,23 +33,23 @@ class LandingPage extends Component {
   	return (
   		<div>
         {/*<!-- Navigation -->*/}
-        <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <nav className="navbar navbar-expand-md navbar-dark bg-dark" style={{ marginBottom: "0"}}>
           <div className="container">
-              <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-                  <ul class="navbar-nav mr-auto">
-                      <li class="nav-item active">
+              <div className="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                  <ul className="navbar-nav mr-auto">
+                      <li className="nav-item active">
                           <a className="navbar-brand" href={home}>Car ID & Analytics</a>
                       </li>
                   </ul>
               </div>
-              <div class="mx-auto order-0">
+              <div className="mx-auto order-0">
               </div>
-              <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-                  <ul class="navbar-nav ml-auto">
-                      <li class="nav-item" style={{ marginRight: "1rem"}}>
+              <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                  <ul className="navbar-nav ml-auto">
+                      <li className="nav-item" style={{ marginRight: "1rem"}}>
                           <SignUpButton modal={this.state.signup} toggle={this.toggleSignup} toggleLogin={this.toggleLogin}/>
                       </li>
-                      <li class="nav-item">
+                      <li className="nav-item">
                           <LoginButton modal={this.state.login} toggle={this.toggleLogin} toggleSignup={this.toggleSignup}/>
                       </li>
                   </ul>
@@ -73,11 +73,11 @@ class LandingPage extends Component {
               <div className="col-md-10 col-lg-8 col-xl-7 mx-auto">
                 <form onSubmit={(e) => { e.preventDefault() }}>
                   <div className="form-row">
-                    <div className="col-12 col-md-9 mb-2 mb-md-0">
-                      <input type="email" className="form-control form-control-lg" placeholder="Enter VIN" />
-                    </div>
-                    <div className="col-12 col-md-3">
-                      <button type="submit" className="btn btn-block btn-lg btn-primary">Get Report</button>
+                    <div class="input-group mb-3 input-group-lg">
+                      <input type="text" class="form-control" placeholder="Enter VIN" aria-label="Username" aria-describedby="basic-addon1" style={{backgroundColor: "#FFF"}}/>
+                      <div class="input-group-append">
+                        <button class="btn btn-primary btn-lg" type="button" id="button-addon2" style={{ margin: "0", zIndex: "0" }}>Get Report</button>
+                      </div>
                     </div>
                   </div>
                 </form>
@@ -218,13 +218,13 @@ class LandingPage extends Component {
                 Ready to get started? Sign up now!</h2>
               </div>
               <div className="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                <form>
+                <form onSubmit={(e) => { e.preventDefault() }}>
                   <div className="form-row">
-                    <div className="col-12 col-md-9 mb-2 mb-md-0">
-                      <input type="email" className="form-control form-control-lg" placeholder="Enter your email..." />
-                    </div>
-                    <div className="col-12 col-md-3">
-                      <button type="submit" className="btn btn-block btn-lg btn-primary">Sign up!</button>
+                    <div class="input-group mb-3 input-group-lg">
+                      <input type="email" class="form-control" placeholder="Enter email..." aria-label="Username" aria-describedby="basic-addon1" style={{backgroundColor: "#FFF"}}/>
+                      <div class="input-group-append">
+                        <button class="btn btn-primary btn-lg" type="button" id="button-addon2" style={{ margin: "0"}}>Sign Up</button>
+                      </div>
                     </div>
                   </div>
                 </form>

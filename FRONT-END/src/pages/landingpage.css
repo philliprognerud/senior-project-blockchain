@@ -18,7 +18,7 @@ h6 {
   font-weight: 700;
 }*/
 
-header.hero {
+header.masthead {
   position: relative;
   background-color: #343a40;
   background: url("../components/images/bg.png") no-repeat center center;
@@ -27,7 +27,7 @@ header.hero {
   padding-bottom: 8rem;
 }
 
-header.hero .overlay {
+header.masthead .overlay {
   position: absolute;
   background-color: #212529;
   height: 100%;
@@ -37,22 +37,18 @@ header.hero .overlay {
   opacity: 0.3;
 }
 
-header.hero h1 {
+header.masthead h1 {
   font-size: 2rem;
 }
 
 @media (min-width: 768px) {
-  header.hero {
+  header.masthead {
     padding-top: 12rem;
     padding-bottom: 12rem;
   }
-  header.hero h1 {
+  header.masthead h1 {
     font-size: 3rem;
   }
-}
-
-.showcase .column {
-  padding: 0rem;
 }
 
 .showcase .showcase-text {
@@ -60,8 +56,8 @@ header.hero h1 {
 }
 
 .showcase .showcase-img {
-  height: 100%;
-  margin-bottom: -6px;
+  min-height: 30rem;
+  background-size: cover;
 }
 
 @media (min-width: 768px) {

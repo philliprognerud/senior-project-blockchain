@@ -1,49 +1,49 @@
 const { deploy, retrieve } =  require("./blockchain/deploy");
 const { interface, bytecode } = require("./blockchain/compile");
-//const { deploy, retrieve } =  require("./blockchain/deploy2");
-//const { interface, bytecode } = require("./blockchain/compile2");
 
 // Get block address from other DB
-/*let vin = "123456";
+let retrurnAddress = "0x5A9E7014784134b0880A27B33BB6BE6393b160c0";
+let vin = 1234;
 let status = "Brakes: Poor, Transmission: Good";
-let hash = "BlameDominic";
-let returnAddress = "someAddress";*/
 
 // Push data onto blockchain, returns a block address for data retrieval
-const pushData = async(v, s) => {
-	return await deploy(v, s);
-};
-
-const pushDataToBlockchain = async(v, t, h) => {
-	return await deploy(v, t, h);
+const pushData = async(v, t, s) => {
+	return await deploy(v, t, s);
 };
 
 // Get data from blockchain using the contract bytecode and a given block address
-const getDataFromBlockchain = async(int, addr) => {
+const getData = async(int, addr) => {
 	return await retrieve(int, addr);
 }; 
 
-/*pushData("11116363641", "dhfkashfklasdhjfdas")
-.then(addr => console.log(addr))
-.catch(err => {
-	console.log(err)
-	if (err["receipt"])
-		console.log(err["receipt"]["contractAddress"])
+
+/*let today = new Date();
+let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+console.log(time);
+pushData("12345", "car", "e0a4462c072cb5d02a1eb4fbd201e8e86fd27cd4").then(addr => {
+	console.log(addr);
+	today = new Date();
+	time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+	console.log(time);
 })*/
 
-/*pushDataToBlockchain("12345","car","e0a4462c072cb5d02a1eb4fbd201e8e86fd27cd4")
-.then(addr => {
-	console.log("ADDRESS: " + addr);
-})
-.catch(err => console.log(err))*/
+//0xaf10c9a0da5cEF1CB67e508099DE41E27aa59f39
+//0x6E907F4Fd786eE9e5bD5521548Ec977622a863cF
+let hashAddr = "0xe30640A7dca0C32A868F12e90335c79BE82c5379";
 
-//let returnAddress = "0x6E907F4Fd786eE9e5bD5521548Ec977622a863cF"
-//let returnAddress = "0x5Eb84B471646a260b28D430b0e76F48ff403e048";
-let returnAddress;
-//returnAddress = "0x39c429a69df9f4e13108899a0b7f7c5ef8ee30a1"
-returnAddress = "0x5C0b7B1fC670f208efa08d07487cB430D3e82286";
-// Get Car Data from blockchain. Returns VIN and Status
-/*getDataFromBlockchain(interface, returnAddress).then(data => {
+let today = new Date();
+let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+console.log(time);
+getData(interface, hashAddr).then(data => {
+	console.log(data);
+	today = new Date();
+	time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+	console.log(time);
+})
+.catch(err => console.log(err));
+
+/*// Get Car Data from blockchain. Returns VIN and Status
+getData(interface, retrurnAddress).then(data => {
 	console.log(data);
 })
 .catch(err => console.log(err));*/

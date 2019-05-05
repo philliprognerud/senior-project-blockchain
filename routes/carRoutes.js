@@ -22,7 +22,7 @@ const getAndStoreCarData = (vin) => {
 	    let data = response;
 	    let dataHash = hash(response);
 
-	   /*pushDataToBlockchain(vin, "car", dataHash)
+	   pushDataToBlockchain(vin, "car", dataHash)
 	    .then(addr => {
 	    	console.log(addr)
 	        Car.findOneAndUpdate(
@@ -61,9 +61,9 @@ const getAndStoreCarData = (vin) => {
 	                console.log(doc);
 	            })
 			}
-		})*/
+		})
 
-		Car.findOneAndUpdate(
+		/*Car.findOneAndUpdate(
 	            { vin: vin },
 	            { "$set": 
 	                { records: 
@@ -77,7 +77,7 @@ const getAndStoreCarData = (vin) => {
 	            (err, doc) => {
 	                if (err) console.log(err);
 	                console.log(doc);
-	            })
+	            })*/
 	})
 	.catch(err => console.log("Blame Dominic" + err))
 }
@@ -90,7 +90,7 @@ const getAndStoreHistoryData = (vin) => {
 	    let data = response;
 	    let dataHash = hash(response);
 	    
-	    /*pushDataToBlockchain(vin, "history", dataHash)
+	    pushDataToBlockchain(vin, "history", dataHash)
 	    .then(addr => {
 	    	console.log(addr)
 	        Car.findOneAndUpdate(
@@ -129,9 +129,9 @@ const getAndStoreHistoryData = (vin) => {
 	                console.log(doc);
 	            })
 			}
-		})*/
+		})
 
-		Car.findOneAndUpdate(
+		/*Car.findOneAndUpdate(
 	            { vin: vin },
 	            { "$set": 
 	                { history: 
@@ -145,7 +145,7 @@ const getAndStoreHistoryData = (vin) => {
 	            (err, doc) => {
 	                if (err) console.log(err);
 	                console.log(doc);
-	            })
+	            })*/
 	})
 	.catch(err => console.log("Blame Dominic" + err))
 }
@@ -158,7 +158,7 @@ const getAndStoreComponentData = (vin) => {
 	    let data = response;
 	    let dataHash = hash(response);
 	    
-	    /*pushDataToBlockchain(vin, "component", dataHash)
+	    pushDataToBlockchain(vin, "component", dataHash)
 	    .then(addr => {
 	    	console.log(addr)
 	        Car.findOneAndUpdate(
@@ -197,9 +197,9 @@ const getAndStoreComponentData = (vin) => {
 	                console.log(doc);
 	            })
 			}
-		})*/
+		})
 
-	    Car.findOneAndUpdate(
+	    /*Car.findOneAndUpdate(
 	            { vin: vin },
 	            { "$set": 
 	                { component: 
@@ -213,7 +213,7 @@ const getAndStoreComponentData = (vin) => {
 	            (err, doc) => {
 	                if (err) console.log(err);
 	                console.log(doc);
-	            })
+	            })*/
 	})
 	.catch(err => console.log("Blame Dominic" + err))
 }
@@ -221,11 +221,11 @@ const getAndStoreComponentData = (vin) => {
 let hour = 60 * 60 * 1000;
 let vin = "123456";
 // Fetch car data every hour
-setInterval(getAndStoreCarData(vin), hour);
-setInterval(getAndStoreComponentData(vin), hour);
+setInterval(() => {getAndStoreCarData(vin)}, hour);
+setInterval(() => {getAndStoreComponentData(vin)}, hour);
 
 // Store car history every day
-setInterval(getAndStoreHistoryData(vin), hour * 24);
+setInterval(() => {getAndStoreHistoryData(vin)}, hour * 24);
 
 //getAndStoreCarData(vin)
 //getAndStoreComponentData(vin)

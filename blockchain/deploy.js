@@ -10,47 +10,58 @@ const provider = new HDWalletProvider(
 
 const web3 = new Web3(provider);
 
-const deploy = async (vin, type, hash) => {
-	let returnAddress = "Yes"
+const initialVin = "1234";
+const initialStatus = "Brakes: Good, Transmission: Good";
+//let retrurnAddress = "0x5A9E7014784134b0880A27B33BB6BE6393b160c0";
+
+/*const deploy = async (vin, status) => {
 	const accounts = await web3.eth.getAccounts();
-	
+
 	// Deploy CarReport Contract with initial VIN and initial Status
-	const contract = new web3.eth.Contract(JSON.parse(interface));
-	//const result = await new web3.eth.Contract(JSON.parse(interface))
-	console.log("deploying");
-	const deployed = await contract.deploy({ data: bytecode, arguments: [ vin, type, hash ] })
-	console.log("Sending");
-	await deployed.send({ gas: "1000000", from: accounts[0] }).then((receipt) => {
-		console.log("Contract Addr: " + receipt.contractAddress);
-		returnAddress = receipt.contractAddress;
-	}) /*, 
-		(error, transactionHash) => {
-			if (error) console.log(error);
-			console.log("Transaction Hash: " + transactionHash)
-		}) */
-		/*.once('receipt', (receipt) => {
-		   console.log("Rec addr: " + receipt.contractAddress) // contains the new contract address
-		   
-		   console.log("Setting returnAddress");
+	const result = await new web3.eth.Contract(JSON.parse(interface))
+		.deploy({ data: bytecode, arguments: [ vin, status ] })
+		.send({ gas: "1000000", from: accounts[0] });
 
-		   returnAddress = receipt.contractAddress;
-		   console.log("Return addr: " + returnAddress);
-
-		})
-		.on('error', console.error)*/
-		/*.then((receipt) => {
-			console.log("SEND HELP")
-    		console.log("Rec addr: " + receipt.contractAddress)
-    	});*/
-	//console.log(result);
-
-	console.log("Returning")
-	return returnAddress;
+	retrurnAddress = result.options.address;
+	//console.log("Contract deployed to", result.options.address);
+	return retrurnAddress;
 };
 
 // Retrive contract at a given block address using the contract's ABI
-const retrieve = async (abi, address) => {
-	const result = await new web3.eth.Contract(JSON.parse(abi), address);
+const retrieve = async (interface, address) => {
+	const result = await new web3.eth.Contract(JSON.parse(interface), address);
+	const resultVIN = await result.methods.vin().call();
+	const resultStatus = await result.methods.status().call();
+
+	const record = {
+		vin: resultVIN,
+		status: resultStatus
+	}
+
+	//console.log(record.vin);
+	//console.log(record.status);
+	return record;
+};
+
+module.exports.deploy = deploy;
+module.exports.retrieve = retrieve;*/
+
+const deploy = async (vin, type, hash) => {
+	const accounts = await web3.eth.getAccounts();
+
+	// Deploy CarReport Contract with initial VIN and initial Status
+	const result = await new web3.eth.Contract(JSON.parse(interface))
+		.deploy({ data: bytecode, arguments: [ vin, type, hash ] })
+		.send({ gas: "1000000", from: accounts[0] });
+
+	let retrurnAddress = result.options.address;
+	//console.log("Contract deployed to", result.options.address);
+	return retrurnAddress;
+};
+
+// Retrive contract at a given block address using the contract's ABI
+const retrieve = async (interface, address) => {
+	const result = await new web3.eth.Contract(JSON.parse(interface), address);
 	const resultVIN = await result.methods.vin().call();
 	const resultType = await result.methods.recordType().call();
 	const resultHash = await result.methods.recordHash().call();
@@ -61,6 +72,8 @@ const retrieve = async (abi, address) => {
 		status: resultHash
 	}
 
+	//console.log(record.vin);
+	//console.log(record.status);
 	return record;
 };
 

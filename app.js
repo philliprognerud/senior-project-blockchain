@@ -33,6 +33,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 require("./routes/authRoutes")(app);
+require("./routes/carRoutes");
 // require("../routes/supplierRoutes")(app);
 // require("../routes/queries")(app);
 

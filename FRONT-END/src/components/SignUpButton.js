@@ -42,17 +42,17 @@ class SignUpButton extends Component {
           </div>
           <div className="modal-body mx-4">
             <div className="md-form mb-5 text-center">
-              <label data-error="wrong" data-success="right" for="Form-email1">Your Name</label>
+              <label data-error="wrong" data-success="right" for="Form-email1">Name</label>
               <input type="text" className="form-control validate" style={{ margin: "auto" }} ref={node => this.name = node}/>
             </div>
 
             <div className="md-form mb-5 text-center">
-              <label data-error="wrong" data-success="right" for="Form-email1">Your email</label>
+              <label data-error="wrong" data-success="right" for="Form-email1">Email</label>
               <input type="email" className="form-control validate" style={{ margin: "auto" }} ref={node => this.email = node}/>
             </div>
 
             <div className="md-form mb-3 text-center">
-              <label data-error="wrong" data-success="right" for="Form-pass1">Your password</label>
+              <label data-error="wrong" data-success="right" for="Form-pass1">Password</label>
               <input type="password" id="Form-pass1" className="form-control validate" style={{ margin: "auto" }} ref={node => this.password = node} />
             </div>
 
@@ -62,11 +62,11 @@ class SignUpButton extends Component {
             <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign up
               with:</p>
 
-            <div className="row my-3 d-flex justify-content-center">
-              <button type="button" className="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i className="fab fa-facebook-f text-center"></i></button>
-              <button type="button" className="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i className="fab fa-twitter"></i></button>
-              <button type="button" className="btn btn-white btn-rounded z-depth-1a" onClick={this.google}><i className="fab fa-google-plus-g"></i></button>
-            </div>
+              <div className="row my-3 d-flex justify-content-center">
+                <button type="button" className="btn btn-white btn-rounded mr-md-3 z-depth-1a" style={{width:"70px", background:"#007bff"}}><i className="fab fa-facebook-f text-center"></i></button>
+                <button type="button" className="btn btn-info btn-rounded mr-md-3 z-depth-1a" style={{width:"70px"}}><i className="fab fa-twitter"></i></button>
+                <button type="button" className="btn btn-danger btn-rounded z-depth-1a" style={{width:"70px"}} onClick={this.google}><i className="fab fa-google-plus-g"></i></button>
+              </div>
           </div>
         </div>
       </div>

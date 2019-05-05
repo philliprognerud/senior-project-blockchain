@@ -21,12 +21,18 @@ var dashRoutes = [
   {
     path: "/dashboard/yourcar",
     name: "Your Car",
-    icon: "tech_watch-time",
+    icon: "travel_info",
     component: YourCar
   },
+  // {
+  //   path: "/dashboard/chart",
+  //   name: "Chart",
+  //   component: Chart
+  // },
   {
-    path: "/dashboard/chart",
-    name: "Chart",
+    path: "/dashboard/order",
+    name: "Order Device",
+    icon: "tech_mobile",
     component: Chart
   }
 ];

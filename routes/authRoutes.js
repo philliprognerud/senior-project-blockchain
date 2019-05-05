@@ -76,7 +76,7 @@ module.exports = app => {
     passport.authenticate("google", { failureRedirect: "/" }),
     function(req, res) {
 
-      res.redirect("http://localhost:3000/dashboard/home");
+      res.redirect("http://localhost:3000/dashboard/order");
     }
   );
 

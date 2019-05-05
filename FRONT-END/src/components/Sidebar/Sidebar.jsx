@@ -34,14 +34,14 @@ class Sidebar extends React.Component {
     return (
       <div className="sidebar" data-color="blue">
         <div className="logo" >
-          <a
-            href="https://www.creative-tim.com"
-            className="simple-text logo-mini"
-          >
-            <i className={"now-ui-icons location_world"} style={{fontSize: "24px"}}/>
+        <a
+          href="/"
+          className="simple-text logo-mini"
+        >
+          <i className={"now-ui-icons location_world"} style={{fontSize: "24px"}}/>
           </a>
           <a
-            href="https://www.creative-tim.com"
+            href="/"
             className="simple-text logo-normal"
             style={{paddingTop:"5px"}}
           >

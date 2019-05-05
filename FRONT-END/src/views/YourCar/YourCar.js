@@ -82,6 +82,7 @@ class YourCar extends React.Component {
   render() {
     return (
       <div>
+        <div>
         <PanelHeader
           content={
             <div className="header text-center">
@@ -90,8 +91,8 @@ class YourCar extends React.Component {
                 See how your car is right now.
               </p>
             </div>
-          }
-        />
+          }/>
+        </div>
         <div className="content">
           <Row>
             <Col md={6} xs={12}>
@@ -157,7 +158,7 @@ class YourCar extends React.Component {
                     <CardBody>
                         <img src='https://media.ed.edmunds-media.com/toyota/rav4/2007/oem/2007_toyota_rav4_4dr-suv_base_fq_oem_2_500.jpg' />
                     </CardBody>
-                     
+
                 </Card>
             </Col>
             </Col>
@@ -207,7 +208,7 @@ class YourCar extends React.Component {
                   </Table>
                 </CardBody>
               </Card>
-              
+
             </Col>
           </Row>
         </div>

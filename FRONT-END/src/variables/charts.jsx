@@ -80,10 +80,10 @@ const gradientChartOptionsConfiguration = {
           display: true,
           position: 'bottom',
   }
-  
+
 };
 
-function getGradientChartOptionsConfigurationWithNumbersAndGrid(yLabel, yUnit ){ 
+function getGradientChartOptionsConfigurationWithNumbersAndGrid(yLabel, yUnit ){
   var gradientChartOptionsConfigurationWithNumbersAndGrid = {
     maintainAspectRatio: false,
     legend: {
@@ -307,7 +307,7 @@ const TripDistance = {
     gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
     gradientFill.addColorStop(1, hexToRGB("#18ce0f", 0.4));
     return {
-      labels: ["Apr 21,", "Apr 22", "Apr 23", "Apr 24", "Apr 25", "Apr 26", "Apr 27", "Apr 28"],
+      labels: ["May 4,", "May 5", "May 6", "May 7", "May 8", "May 9", "May 10", "May 11"],
       datasets: [
         {
           label: "Trip Stats",
@@ -326,7 +326,7 @@ const TripDistance = {
       ]
     };
   },
-  options: getGradientChartOptionsConfigurationWithNumbersAndGrid("TripSpeeds", "mi")
+  options: getGradientChartOptionsConfigurationWithNumbersAndGrid("Distance", "mi")
 };
 
 // ##############################
@@ -340,16 +340,7 @@ const averageSpeed = {
     gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
     gradientFill.addColorStop(1, hexToRGB("#2CA8FF", 0.6));
     return {
-      labels: [
-        "Apr 21",
-        "Apr 22",
-        "Apr 23",
-        "Apr 24",
-        "Apr 25",
-        "Apr 26",
-        "Apr 27",
-        "Apr 28"
-      ],
+      labels: ["May 4,", "May 5", "May 6", "May 7", "May 8", "May 9", "May 10", "May 11"],
       datasets: [
         {
           label: "Average Trip Speed",
@@ -368,39 +359,7 @@ const averageSpeed = {
       ]
     };
   },
-  options: {
-    maintainAspectRatio: false,
-    legend: {
-      display: false
-    },
-    tooltips: {
-      bodySpacing: 4,
-      mode: "nearest",
-      intersect: 0,
-      position: "nearest",
-      xPadding: 10,
-      yPadding: 10,
-      caretPadding: 10
-    },
-    responsive: 1,
-    scales: {
-      yAxes: [
-        {
-          gridLines: {
-            zeroLineColor: "transparent",
-            drawBorder: false
-          }
-        }
-      ],
-      xAxes: [
-        {
-        }
-      ]
-    },
-    layout: {
-      padding: { left: 0, right: 0, top: 15, bottom: 15 }
-    }
-  }
+  options: getGradientChartOptionsConfigurationWithNumbersAndGrid("Speed", "mph")
 };
 
 const FuelChart = {
@@ -440,7 +399,7 @@ const FuelChart = {
           fill: true,
           backgroundColor: gradientFill,
           borderWidth: 2,
-          data: [1966.14, 2054.18, 2311.9, 2243.53, 2243.53, 2650.23, 2353.59, 2243.68, 2546.88, 2425.69, 2364.96, 2084.58]
+          data: [227.14, 253.18, 191.9, 197.53, 218.53, 276.23, 295.59, 233.68, 254.88, 230.69, 203.96, 234.58]
         }
       ]
     };
@@ -485,7 +444,7 @@ const FuelUsageChart = {
           fill: true,
           backgroundColor: gradientFill,
           borderWidth: 2,
-          data: [466, 542, 610, 592, 567, 421, 621, 592, 672, 640, 624, 550]
+          data: [60, 62, 54, 56, 62, 64, 63, 54, 59, 61, 53, 59]
         }
       ]
     };
@@ -522,7 +481,7 @@ const CarUsage = {
           backgroundColor: [
           "#DEB887",
           "#A9A9A9",
-          "#DC143C",       
+          "#DC143C",
           ],
             borderWidth: 2,
           data: [27,43,30]

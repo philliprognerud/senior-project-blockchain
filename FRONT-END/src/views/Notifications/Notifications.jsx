@@ -96,7 +96,7 @@ class Notifications extends React.Component {
                       options={TotalMilesDriven.options}
                     />
                   </div>
-                  
+
                 </CardBody>
               </Card>
             </Col>
@@ -123,7 +123,7 @@ class Notifications extends React.Component {
                 <CardHeader>
                   <CardTitle tag="h4">Collisions</CardTitle>
                     <CardBody>
-                      <ul> 
+                      <ul>
                         <li>2013: Rear End Collision</li>
                         <li>2016: Side Mirror Damage</li>
                       </ul>
@@ -191,12 +191,20 @@ class Notifications extends React.Component {
                         <td>Oil Change</td>
                       </tr>
                       <tr>
+                        <td>Decmber 19, 2018</td>
+                        <td>Tire Change</td>
+                      </tr>
+                      <tr>
                         <td>January, 2014</td>
                         <td>Oil Change</td>
                       </tr>
                       <tr>
-                        <td>"August 8, 2014"</td>
+                        <td>August 8, 2014</td>
                         <td>Oil Change</td>
+                      </tr>
+                      <tr>
+                        <td>September 9, 2014</td>
+                        <td>Tire Change</td>
                       </tr>
                       <tr>
                         <td>Febuary 25, 2015</td>
@@ -208,7 +216,7 @@ class Notifications extends React.Component {
                       </tr>
                       <tr>
                         <td>January 31, 2016</td>
-                        <td>Oil Change</td>
+                        <td>Brake Check</td>
                       </tr>
                       <tr>
                         <td>July 16, 2016</td>
@@ -220,11 +228,15 @@ class Notifications extends React.Component {
                       </tr>
                       <tr>
                         <td>December 29, 2017</td>
-                        <td>Oil Change</td>
+                        <td>Engine Oil</td>
                       </tr>
                       <tr>
                         <td>June 12, 2018</td>
                         <td>Oil Change</td>
+                      </tr>
+                      <tr>
+                        <td>October 21, 2018</td>
+                        <td>Tire Change</td>
                       </tr>
                       <tr>
                         <td>November 23, 2018</td>
@@ -235,96 +247,6 @@ class Notifications extends React.Component {
                    </Table>
                   </CardBody>
                 </CardHeader>
-              </Card>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={6} xs={12}>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={12} xs={12}>
-              <Card>
-                <CardBody>
-                  <div className="places-buttons">
-                    <Row>
-                      <Col md={6} className="ml-auto mr-auto text-center">
-                        <CardTitle tag="h4">
-                          Notifications Places
-                          <p className="category">
-                            Click to view notifications
-                          </p>
-                        </CardTitle>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col lg={8} xs={12} className="ml-auto mr-auto">
-                        <Row>
-                          <Col md={4} xs={12}>
-                            <Button
-                              color="primary"
-                              block
-                              onClick={() => this.notify("tl")}
-                            >
-                              Top Left
-                            </Button>
-                          </Col>
-                          <Col md={4} xs={12}>
-                            <Button
-                              color="primary"
-                              block
-                              onClick={() => this.notify("tc")}
-                            >
-                              Top Center
-                            </Button>
-                          </Col>
-                          <Col md={4} xs={12}>
-                            <Button
-                              color="primary"
-                              block
-                              onClick={() => this.notify("tr")}
-                            >
-                              Top Right
-                            </Button>
-                          </Col>
-                        </Row>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col lg={8} xs={12} className="ml-auto mr-auto">
-                        <Row>
-                          <Col md={4} xs={12}>
-                            <Button
-                              color="primary"
-                              block
-                              onClick={() => this.notify("bl")}
-                            >
-                              Bottom Left
-                            </Button>
-                          </Col>
-                          <Col md={4} xs={12}>
-                            <Button
-                              color="primary"
-                              block
-                              onClick={() => this.notify("bc")}
-                            >
-                              Bottom Center
-                            </Button>
-                          </Col>
-                          <Col md={4} xs={12}>
-                            <Button
-                              color="primary"
-                              block
-                              onClick={() => this.notify("br")}
-                            >
-                              Bottom Right
-                            </Button>
-                          </Col>
-                        </Row>
-                      </Col>
-                    </Row>
-                  </div>
-                </CardBody>
               </Card>
             </Col>
           </Row>

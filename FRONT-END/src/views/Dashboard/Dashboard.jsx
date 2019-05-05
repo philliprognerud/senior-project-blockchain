@@ -56,37 +56,21 @@ class Dashboard extends React.Component {
           <Row>
             <Col xs={12} md={4}>
               <Link to={{ pathname: '/chart', chart :   <Pie
-                      data={BatteryConsumption.data}
-                      options={BatteryConsumption.options}
-                    />, mainTitle : 'Battery Usage', subMainTitle : 'See your Battery performance',
-                    chartTitle : 'Pie Chart', chartSubTitle: 'Watts'
+                data={CarUsage.data}
+                options={CarUsage.options}/>, mainTitle : 'Fuel Usage',
+                subMainTitle : 'See how you are using your car',
+                chartTitle : 'Pie Chart', chartSubTitle: 'Time'
               }}>
               <Card className="card-chart">
                 <CardHeader>
-                  <CardCategory>Wattage(4840W)</CardCategory>
-                  <CardTitle tag="h4">Battery Consumption</CardTitle>
-                  <UncontrolledDropdown>
-                    <DropdownToggle
-                      className="btn-round btn-simple btn-icon"
-                      color="default"
-                    >
-                      <i className="now-ui-icons loader_gear" />
-                    </DropdownToggle>
-                    <DropdownMenu right>
-                      <DropdownItem>Action</DropdownItem>
-                      <DropdownItem>Another Action</DropdownItem>
-                      <DropdownItem>Something else here</DropdownItem>
-                      <DropdownItem className="text-danger">
-                        Remove data
-                      </DropdownItem>
-                    </DropdownMenu>
-                  </UncontrolledDropdown>
+                  <CardCategory> Car State </CardCategory>
+                  <CardTitle tag="h4">Car Usage</CardTitle>
                 </CardHeader>
                 <CardBody>
                   <div className="chart-area">
                     <Pie
-                      data={BatteryConsumption.data}
-                      options={BatteryConsumption.options}
+                      data={CarUsage.data}
+                      options={CarUsage.options}
                     />
                   </div>
                 </CardBody>
@@ -175,22 +159,6 @@ class Dashboard extends React.Component {
                 <CardHeader>
                   <CardCategory>Fuel Costs($)</CardCategory>
                   <CardTitle tag="h4">Monthly Fuel Costs</CardTitle>
-                  <UncontrolledDropdown>
-                    <DropdownToggle
-                      className="btn-round btn-simple btn-icon"
-                      color="default"
-                    >
-                      <i className="now-ui-icons loader_gear" />
-                    </DropdownToggle>
-                    <DropdownMenu right>
-                      <DropdownItem>Action</DropdownItem>
-                      <DropdownItem>Another Action</DropdownItem>
-                      <DropdownItem>Something else here</DropdownItem>
-                      <DropdownItem className="text-danger">
-                        Remove data
-                      </DropdownItem>
-                    </DropdownMenu>
-                  </UncontrolledDropdown>
                 </CardHeader>
                 <CardBody>
                   <div className="chart-area">
@@ -224,21 +192,6 @@ class Dashboard extends React.Component {
                 <CardHeader>
                   <CardCategory>Fuel Consumed(Gallons)</CardCategory>
                   <CardTitle tag="h4"> Fuel Used Monthly</CardTitle>
-                  <UncontrolledDropdown>
-                    <DropdownToggle
-                      className="btn-round btn-simple btn-icon"
-                      color="default">
-                      <i className="now-ui-icons loader_gear" />
-                    </DropdownToggle>
-                    <DropdownMenu right>
-                      <DropdownItem>Action</DropdownItem>
-                      <DropdownItem>Another Action</DropdownItem>
-                      <DropdownItem>Something else here</DropdownItem>
-                      <DropdownItem className="text-danger">
-                        Remove data
-                      </DropdownItem>
-                    </DropdownMenu>
-                  </UncontrolledDropdown>
                 </CardHeader>
                 <CardBody>
                   <div className="chart-area">
@@ -263,36 +216,21 @@ class Dashboard extends React.Component {
             </Col>
             <Col xs={12} md={4}>
               <Link to={{ pathname: '/chart', chart :   <Pie
-                data={CarUsage.data}
-                options={CarUsage.options}/>, mainTitle : 'Fuel Usage',
-                subMainTitle : 'See how you are using your car',
-                chartTitle : 'Pie Chart', chartSubTitle: 'Time'
+                      data={BatteryConsumption.data}
+                      options={BatteryConsumption.options}
+                    />, mainTitle : 'Battery Usage', subMainTitle : 'See your Battery performance',
+                    chartTitle : 'Pie Chart', chartSubTitle: 'Watts'
               }}>
               <Card className="card-chart">
                 <CardHeader>
-                  <CardCategory> Car State </CardCategory>
-                  <CardTitle tag="h4">Car Usage</CardTitle>
-                  <UncontrolledDropdown>
-                    <DropdownToggle
-                      className="btn-round btn-simple btn-icon"
-                      color="default">
-                      <i className="now-ui-icons loader_gear" />
-                    </DropdownToggle>
-                    <DropdownMenu right>
-                      <DropdownItem>Action</DropdownItem>
-                      <DropdownItem>Another Action</DropdownItem>
-                      <DropdownItem>Something else here</DropdownItem>
-                      <DropdownItem className="text-danger">
-                        Remove data
-                      </DropdownItem>
-                    </DropdownMenu>
-                  </UncontrolledDropdown>
+                  <CardCategory>Wattage('4840W')</CardCategory>
+                  <CardTitle tag="h4">Battery Consumption</CardTitle>
                 </CardHeader>
                 <CardBody>
                   <div className="chart-area">
                     <Pie
-                      data={CarUsage.data}
-                      options={CarUsage.options}
+                      data={BatteryConsumption.data}
+                      options={BatteryConsumption.options}
                     />
                   </div>
                 </CardBody>

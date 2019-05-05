@@ -3,6 +3,7 @@ import Notifications from "views/Notifications/Notifications.jsx";
 import CarHistory from "views/CarHistory.js";
 import Chart from "views/Chart/Chart.js";
 import YourCar from "views/YourCar/YourCar.js";
+import VehicleValue from "views/VehicleValue/VehicleValue.js";
 
 
 var dashRoutes = [
@@ -36,10 +37,10 @@ var dashRoutes = [
     component: Chart
   },
   {
-    path: "/dashboard/order",
+    path: "/dashboard/vehicle/value",
     name: "Vehicle Value",
     icon: "tech_mobile",
-    component: Chart
+    component: VehicleValue
   }
 ];
 export default dashRoutes;

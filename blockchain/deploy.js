@@ -11,16 +11,41 @@ const provider = new HDWalletProvider(
 const web3 = new Web3(provider);
 
 const deploy = async (vin, type, hash) => {
+	let returnAddress = "Yes"
 	const accounts = await web3.eth.getAccounts();
 	
-	console.log("Attempting to deploy");
 	// Deploy CarReport Contract with initial VIN and initial Status
-	const result = await new web3.eth.Contract(JSON.parse(interface))
-		.deploy({ data: bytecode, arguments: [ vin, type, hash ] })
-		.send({ gas: "1000000", from: accounts[0] });
+	const contract = new web3.eth.Contract(JSON.parse(interface));
+	//const result = await new web3.eth.Contract(JSON.parse(interface))
+	console.log("deploying");
+	const deployed = await contract.deploy({ data: bytecode, arguments: [ vin, type, hash ] })
+	console.log("Sending");
+	await deployed.send({ gas: "1000000", from: accounts[0] }).then((receipt) => {
+		console.log("Contract Addr: " + receipt.contractAddress);
+		returnAddress = receipt.contractAddress;
+	}) /*, 
+		(error, transactionHash) => {
+			if (error) console.log(error);
+			console.log("Transaction Hash: " + transactionHash)
+		}) */
+		/*.once('receipt', (receipt) => {
+		   console.log("Rec addr: " + receipt.contractAddress) // contains the new contract address
+		   
+		   console.log("Setting returnAddress");
 
-	let retrurnAddress = result.options.address;
-	return retrurnAddress;
+		   returnAddress = receipt.contractAddress;
+		   console.log("Return addr: " + returnAddress);
+
+		})
+		.on('error', console.error)*/
+		/*.then((receipt) => {
+			console.log("SEND HELP")
+    		console.log("Rec addr: " + receipt.contractAddress)
+    	});*/
+	//console.log(result);
+
+	console.log("Returning")
+	return returnAddress;
 };
 
 // Retrive contract at a given block address using the contract's ABI

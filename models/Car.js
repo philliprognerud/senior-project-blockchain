@@ -8,4 +8,4 @@ const carSchema = new Schema({
   component: { data: Object, blockAddr: String }
 });
 
-mongoose.model("cars", carSchema);
+module.exports = mongoose.model("cars", carSchema);

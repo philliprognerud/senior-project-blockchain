@@ -4,7 +4,7 @@ const fetch = require("node-fetch");
 const hash = require("object-hash");
 const mongoose = require("mongoose");
 const keys = require("../config/keys");
-const Car = mongoose.model("cars");
+const Car = require("../models/Car");
 
 const pushDataToBlockchain = async(v, t, h) => {
 	return await deploy(v, t, h);
@@ -19,45 +19,65 @@ const getAndStoreCarData = (vin) => {
 	fetch(url)
 	.then(response => response.json())
 	.then(response => {
-	    let date = new Date();
 	    let data = response;
 	    let dataHash = hash(response);
-	    
-	    /*Car.findOneAndUpdate(
-	            { vin: vin },
-	            { "$push": 
-	                { records: 
-	                    { "date": date, 
-	                    "data": data, 
-	                    "hash": dataHash, 
-	                    "blockAddr": "Blame Dominic"}
-	                }
-	            }, (err, doc) => {
-	                if (err) console.log(err);
-	            })*/
-	    
-	    pushDataToBlockchain(vin, "car", dataHash)
+
+	   /*pushDataToBlockchain(vin, "car", dataHash)
 	    .then(addr => {
-	        console.log(addr)
-	        console.log("it somehow succeeded")
-	    })
-	    .catch(err => {
-	    	console.log(err)
-	    	if (err["receipt"])
-				console.log(err["receipt"]["contractAddress"])
-	    	Car.findOneAndUpdate(
+	    	console.log(addr)
+	        Car.findOneAndUpdate(
 	            { vin: vin },
-	            { "$push": 
+	            { "$set": 
 	                { records: 
 	                    { 
 		                    "data": data, 
-		                    "blockAddr": err["receipt"]["contractAddress"]
+		                    "blockAddr": addr
 	                    }
 	                }
-	            }, (err, doc) => {
+	            },
+	            { new: true },
+	            (err, doc) => {
 	                if (err) console.log(err);
+	                console.log(doc);
 	            })
-	    });
+	    })
+	    .catch(err => {
+			console.log(err)
+			if (err["receipt"]) {
+				console.log(err["receipt"]["contractAddress"])
+				Car.findOneAndUpdate(
+	            { vin: vin },
+	            { "$set": 
+	                { records: 
+	                    { 
+		                    "data": data, 
+		                    "blockAddr": addr
+	                    }
+	                }
+	            },
+	            { new: true },
+	            (err, doc) => {
+	                if (err) console.log(err);
+	                console.log(doc);
+	            })
+			}
+		})*/
+
+		Car.findOneAndUpdate(
+	            { vin: vin },
+	            { "$set": 
+	                { records: 
+	                    { 
+		                    "data": data, 
+		                    "blockAddr": "addr"
+	                    }
+	                }
+	            },
+	            { new: true },
+	            (err, doc) => {
+	                if (err) console.log(err);
+	                console.log(doc);
+	            })
 	})
 	.catch(err => console.log("Blame Dominic" + err))
 }
@@ -67,21 +87,64 @@ const getAndStoreHistoryData = (vin) => {
 	fetch(url)
 	.then(response => response.json())
 	.then(response => {
-	    let date = new Date();
 	    let data = response;
 	    let dataHash = hash(response);
 	    
-	    Car.findOneAndUpdate(
+	    /*pushDataToBlockchain(vin, "history", dataHash)
+	    .then(addr => {
+	    	console.log(addr)
+	        Car.findOneAndUpdate(
 	            { vin: vin },
-	            { "$push": 
+	            { "$set": 
 	                { history: 
-	                    { "date": date, 
-	                    "data": data, 
-	                    "hash": dataHash, 
-	                    "blockAddr": "Blame Dominic"}
+	                    { 
+		                    "data": data, 
+		                    "blockAddr": addr
+	                    }
 	                }
-	            }, (err, doc) => {
+	            },
+	            { new: true },
+	            (err, doc) => {
 	                if (err) console.log(err);
+	                console.log(doc);
+	            })
+	    })
+	    .catch(err => {
+			console.log(err)
+			if (err["receipt"]) {
+				console.log(err["receipt"]["contractAddress"])
+				Car.findOneAndUpdate(
+	            { vin: vin },
+	            { "$set": 
+	                { history: 
+	                    { 
+		                    "data": data, 
+		                    "blockAddr": addr
+	                    }
+	                }
+	            },
+	            { new: true },
+	            (err, doc) => {
+	                if (err) console.log(err);
+	                console.log(doc);
+	            })
+			}
+		})*/
+
+		Car.findOneAndUpdate(
+	            { vin: vin },
+	            { "$set": 
+	                { history: 
+	                    { 
+		                    "data": data, 
+		                    "blockAddr": "addr"
+	                    }
+	                }
+	            },
+	            { new: true },
+	            (err, doc) => {
+	                if (err) console.log(err);
+	                console.log(doc);
 	            })
 	})
 	.catch(err => console.log("Blame Dominic" + err))
@@ -92,21 +155,64 @@ const getAndStoreComponentData = (vin) => {
 	fetch(url)
 	.then(response => response.json())
 	.then(response => {
-	    let date = new Date();
 	    let data = response;
 	    let dataHash = hash(response);
 	    
+	    /*pushDataToBlockchain(vin, "component", dataHash)
+	    .then(addr => {
+	    	console.log(addr)
+	        Car.findOneAndUpdate(
+	            { vin: vin },
+	            { "$set": 
+	                { component: 
+	                    { 
+		                    "data": data, 
+		                    "blockAddr": addr
+	                    }
+	                }
+	            },
+	            { new: true },
+	            (err, doc) => {
+	                if (err) console.log(err);
+	                console.log(doc);
+	            })
+	    })
+	    .catch(err => {
+			console.log(err)
+			if (err["receipt"]) {
+				console.log(err["receipt"]["contractAddress"])
+				Car.findOneAndUpdate(
+	            { vin: vin },
+	            { "$set": 
+	                { component: 
+	                    { 
+		                    "data": data, 
+		                    "blockAddr": addr
+	                    }
+	                }
+	            },
+	            { new: true },
+	            (err, doc) => {
+	                if (err) console.log(err);
+	                console.log(doc);
+	            })
+			}
+		})*/
+
 	    Car.findOneAndUpdate(
 	            { vin: vin },
-	            { "$push": 
+	            { "$set": 
 	                { component: 
-	                    { "date": date, 
-	                    "data": data, 
-	                    "hash": dataHash, 
-	                    "blockAddr": "Blame Dominic"}
+	                    { 
+		                    "data": data, 
+		                    "blockAddr": "addr"
+	                    }
 	                }
-	            }, (err, doc) => {
+	            },
+	            { new: true },
+	            (err, doc) => {
 	                if (err) console.log(err);
+	                console.log(doc);
 	            })
 	})
 	.catch(err => console.log("Blame Dominic" + err))
@@ -116,10 +222,14 @@ let hour = 60 * 60 * 1000;
 let vin = "123456";
 // Fetch car data every hour
 setInterval(getAndStoreCarData(vin), hour);
-// setInterval(getAndStoreComponentData(vin), hour);
+setInterval(getAndStoreComponentData(vin), hour);
 
 // Store car history every day
-// setInterval(getAndStoreHistoryData(vin), hour * 24);
+setInterval(getAndStoreHistoryData(vin), hour * 24);
+
+//getAndStoreCarData(vin)
+//getAndStoreComponentData(vin)
+//getAndStoreHistoryData(vin)
 
 // module.exports = app => {
 // 	app.post("/addcar", (req, res) => {

@@ -3,7 +3,7 @@ const { int, bytecode } = require("./blockchain/compile");
 const hash = require("object-hash");
 const mongoose = require("mongoose");
 const keys = require("./config/keys");
-const Car = mongoose.model("cars");
+const Car = require("./models/Car");
 const fetch = require("node-fetch");
 
 
@@ -31,52 +31,49 @@ const getAndStoreCarData = (vin) => {
 	fetch(url)
 	.then(response => response.json())
 	.then(response => {
-	    let date = new Date();
 	    let data = response;
 	    let dataHash = hash(response);
-	    
-	    Car.findOneAndUpdate(
-	            { vin: vin },
-	            { "$push": 
-	                { records: 
-	                    { "date": date, 
-	                    "data": data, 
-	                    "hash": dataHash, 
-	                    "blockAddr": "Blame Dominic"}
-	                }
-	            }, (err, doc) => {
-	                if (err) 
-	                	console.log(err);
-	            	else {
-	            		console.log(doc);
-	            	}
-	                
-	            })
 
-	   /*pushDataToBlockchain(vin, "car", dataHash)
+	   pushDataToBlockchain(vin, "car", dataHash)
 	    .then(addr => {
-	    	console.log(date)
-	    	console.log(data)
-	    	console.log(dataHash)
 	    	console.log(addr)
-	        /*Car.findOneAndUpdate(
+	        Car.findOneAndUpdate(
 	            { vin: vin },
-	            { "$push": 
+	            { "$set": 
 	                { records: 
-	                    { "date": date, 
-	                    "data": data, 
-	                    "hash": dataHash, 
-	                    "blockAddr": addr}
+	                    { 
+		                    "data": data, 
+		                    "blockAddr": addr
+	                    }
 	                }
-	            }, (err, doc) => {
+	            },
+	            { new: true },
+	            (err, doc) => {
 	                if (err) console.log(err);
+	                console.log(doc);
 	            })
 	    })
 	    .catch(err => {
 			console.log(err)
-			if (err["receipt"])
+			if (err["receipt"]) {
 				console.log(err["receipt"]["contractAddress"])
-		})*/
+				Car.findOneAndUpdate(
+	            { vin: vin },
+	            { "$set": 
+	                { records: 
+	                    { 
+		                    "data": data, 
+		                    "blockAddr": addr
+	                    }
+	                }
+	            },
+	            { new: true },
+	            (err, doc) => {
+	                if (err) console.log(err);
+	                console.log(doc);
+	            })
+			}
+		})
 	})
 	.catch(err => console.log("Blame Dominic" + err))
 }
@@ -154,4 +151,37 @@ let AvgMPG = "0x9d59095aEb8aB0f22294dA2BdA6B120b14d0caF8";
 //https://crypto-sphere-229522.appspot.com/history/123456
 //https://crypto-sphere-229522.appspot.com/component/123456
 
+//getAndStoreCarData(vin);
+
+
+/*let mongo = mongoose.MongoClient;
+mongo.connect(keys.mongoURI, (err, db) => {
+	if (err) throw err;
+
+	console.log("Switched to " + db.databaseName + " database");
+	db.createCollection("cars", (err, result) => {
+		if (err) throw err;
+		console.log("Created cars collection");
+		db.close();
+	})
+
+});*/
+
+mongoose.connect(keys.mongoURI);
+
 getAndStoreCarData(vin);
+/*Car.findOneAndUpdate(
+	            { vin: vin },
+	            { "$set": 
+	                { records: 
+	                    { 
+		                    "data": { yes: "bootstrap sucks" }, 
+		                    "blockAddr": "yes"
+	                    }
+	                }
+	            },
+	            { new: true },
+	            (err, doc) => {
+	                if (err) console.log(err);
+	                console.log(doc);
+	            })*/

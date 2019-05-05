@@ -34,6 +34,12 @@ var dashRoutes = [
     name: "Order Device",
     icon: "tech_mobile",
     component: Chart
+  },
+  {
+    path: "/dashboard/order",
+    name: "Vehicle Value",
+    icon: "tech_mobile",
+    component: Chart
   }
 ];
 export default dashRoutes;

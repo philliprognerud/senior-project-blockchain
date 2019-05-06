@@ -4,6 +4,8 @@ import CarHistory from "views/CarHistory.js";
 import Chart from "views/Chart/Chart.js";
 import YourCar from "views/YourCar/YourCar.js";
 import VehicleValue from "views/VehicleValue/VehicleValue.js";
+import OrderDevice from "views/OrderDevice/OrderDevice.js"
+import UserProfile from "views/UserPage/UserPage.jsx"
 
 
 var dashRoutes = [
@@ -34,13 +36,19 @@ var dashRoutes = [
     path: "/dashboard/order",
     name: "Order Device",
     icon: "tech_mobile",
-    component: Chart
+    component: OrderDevice
   },
   {
     path: "/dashboard/vehicle/value",
     name: "Vehicle Value",
-    icon: "tech_mobile",
+    icon: "business_money-coins",
     component: VehicleValue
+  },
+  {
+    path: "/dashboard/settings",
+    name: "Settings",
+    icon: "loader_gear",
+    component: UserProfile
   }
 ];
 export default dashRoutes;

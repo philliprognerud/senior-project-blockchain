@@ -137,11 +137,11 @@ class User extends React.Component {
             <Col md={4} xs={12}>
               <Card className="card-user">
                 <div className="image">
-                  <img src={userBackground} alt="..." />
+                  <img alt="..." />
                 </div>
                 <CardBody>
                   <CardAuthor
-                    avatar={userAvatar}
+
                     avatarAlt="..."
                     title="Mike Andrew"
                     description="michael23"

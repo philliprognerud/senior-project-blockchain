@@ -42,7 +42,16 @@ const tbody = [
   }
 ];
 
+const FuelUsageInfo = " Users can see what percentage of time they step of the brakes, accerlerate or do not step on any pedal. Reducing the the amount of time the of pedal reduces fuel consumption ";
+const OdometerInfo = " Users can see how much mileage was used on a single trip. It could be helpful to find different routes to the same destination to reduce trip mileage";
+const TripSpeedsInfo = "Users can see how fast they go on an average trip. Users can look to see routes that can increase the speed";
+const MonthlyFuelCostInfo = "Users can see how much they spend each month. Users can look to see periods where gas prices spike";
+const FuelUsedMonthly = "Users can see how much fuel that was consumed monthly"
+const BatteryUsed = "Users can see the battery usage of portions of the car. Users can reduce monitor the battery of their car"
+
+
+
 // tasks list for Tasks card in Dashboard view
 // data for <thead> of table in TableList view
 // data for <tbody> of table in TableList view
-export { tasks, thead, tbody };
+export { tasks, thead, tbody,FuelUsageInfo, OdometerInfo, TripSpeedsInfo, MonthlyFuelCostInfo,FuelUsedMonthly, BatteryUsed   };

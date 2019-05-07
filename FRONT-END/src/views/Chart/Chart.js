@@ -29,6 +29,17 @@ import {
   FuelUsageChart
 } from "variables/charts.jsx";
 
+var divStyle = {
+    cardSize : {
+        width : '95%',
+        margin : 'auto',
+    },
+    rowSize: {
+        paddingBottom : '3%'
+    }
+
+};
+
 /*import "bootstrap/dist/css/bootstrap.css";
 import "assets/scss/now-ui-dashboard.css";
 import "assets/css/demo.css";*/
@@ -36,13 +47,11 @@ import "assets/css/demo.css";*/
 class Chart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      visible: true
-    };
+    console.log(props)
 
   };
-  
-  
+
+
   render() {
     return (
       <div>
@@ -64,7 +73,7 @@ class Chart extends React.Component {
                   <div className="places-buttons">
                     <Row>
                       <Col md={6} className="ml-auto mr-auto text-center">
-                        <CardTitle tag="h4"> 
+                        <CardTitle tag="h4">
                           {this.props.location.chartTitle}
                           <p className="category">
                             {this.props.location.chartSubTitle}
@@ -102,12 +111,13 @@ class Chart extends React.Component {
               </Card>
             </Col>
           </Row>
-          <Row>
-            <Card>
+          <Row style = {divStyle.rowSize}>
+            <Card style = {divStyle.cardSize}>
+              <CardHeader>
+                       <CardTitle tag="h4">Information </CardTitle>
+              </CardHeader>
               <CardBody>
-                 <CardHeader>
-                          <CardTitle tag="h4">Information </CardTitle>
-                 </CardHeader>
+                       <p>{this.props.location.info}</p>
               </CardBody>
             </Card>
           </Row>

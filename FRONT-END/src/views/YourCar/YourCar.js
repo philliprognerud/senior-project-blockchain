@@ -198,11 +198,11 @@ class YourCar extends React.Component {
                       </tr>
                       <tr>
                         <td>Bluetooth</td>
-                        <td>ok</td>
+                        <td>Ok</td>
                       </tr>
                       <tr>
                         <td>Windshield Wipers</td>
-                        <td>ok</td>
+                        <td>Ok</td>
                       </tr>
                     </tbody>
                   </Table>

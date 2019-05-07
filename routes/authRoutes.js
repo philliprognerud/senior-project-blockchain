@@ -7,7 +7,6 @@ const paypal = require("paypal-rest-sdk");
 
 module.exports = app => {
   app.post("/auth/login", async function(req, res, next) {
-    console.log(req.body)
     passport.authenticate("local", async function(err, user, info) {
       if (err) {
         return next(err);
@@ -76,7 +75,7 @@ module.exports = app => {
     passport.authenticate("google", { failureRedirect: "/" }),
     function(req, res) {
 
-      res.redirect("http://localhost:3000/dashboard/order");
+      res.redirect("http://localhost:3000/dashboard/order/success");
     }
   );
 

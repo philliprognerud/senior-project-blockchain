@@ -18,7 +18,7 @@ class LoginButton extends Component {
     })
 
     if(res.data.success){
-      this.props.history.push("/dashboard/home/")
+      this.props.history.push("/dashboard/order/")
     }
   }
 

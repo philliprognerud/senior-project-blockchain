@@ -3,6 +3,9 @@ import { Card, CardHeader, CardBody, Row, Col } from "reactstrap";
 
 import { PanelHeader, FormInputs, CardAuthor, CardSocials } from "components";
 
+import Bg from "../../assets/img/bg8.jpg"
+import Me from "./me.png"
+
 class User extends React.Component {
   render() {
     return (
@@ -11,38 +14,20 @@ class User extends React.Component {
         <div className="content">
           <Row>
             <Col md={8} xs={12}>
-              <Card>
+              <Card style={{height:"100%"}}>
                 <CardHeader>
                   <h5 className="title">Edit Profile</h5>
                 </CardHeader>
                 <CardBody>
                   <form>
                     <FormInputs
-                      ncols={[
-                        "col-md-5 pr-1",
-                        "col-md-3 px-1",
-                        "col-md-4 pl-1"
-                      ]}
+                      ncols={["col-md-12"]}
                       proprieties={[
-                        {
-                          label: "Company (disabled)",
-                          inputProps: {
-                            type: "text",
-                            disabled: true
-                          }
-                        },
-                        {
-                          label: "Username",
-                          inputProps: {
-                            type: "text",
-                            defaultValue: "michael23"
-                          }
-                        },
                         {
                           label: "Email address",
                           inputProps: {
                             type: "email",
-                            placeholder: "Email"
+                            placeholder: "philliprognerud@gmail.com"
                           }
                         }
                       ]}
@@ -55,7 +40,7 @@ class User extends React.Component {
                           inputProps: {
                             type: "text",
                             placeholder: "First Name",
-                            defaultValue: "Mike"
+                            defaultValue: "Phillip"
                           }
                         },
                         {
@@ -63,7 +48,7 @@ class User extends React.Component {
                           inputProps: {
                             type: "text",
                             placeholder: "Last Name",
-                            defaultValue: "Andrew"
+                            defaultValue: "Rognerud"
                           }
                         }
                       ]}
@@ -77,7 +62,7 @@ class User extends React.Component {
                             type: "text",
                             placeholder: "Home Address",
                             defaultValue:
-                              "Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
+                              "1310 Tuolumne Rd"
                           }
                         }
                       ]}
@@ -93,39 +78,23 @@ class User extends React.Component {
                           label: "City",
                           inputProps: {
                             type: "text",
-                            defaultValue: "Bucharest",
-                            placeholder: "City"
+                            defaultValue: "Millbrae",
+                            placeholder: "Millbrae"
                           }
                         },
                         {
                           label: "Country",
                           inputProps: {
                             type: "text",
-                            defaultValue: "Romania",
-                            placeholder: "Country"
+                            defaultValue: "USA",
+                            placeholder: "USA"
                           }
                         },
                         {
                           label: "Postal Code",
                           inputProps: {
                             type: "number",
-                            placeholder: "ZIP Code"
-                          }
-                        }
-                      ]}
-                    />
-                    <FormInputs
-                      ncols={["col-md-12"]}
-                      proprieties={[
-                        {
-                          label: "About Me",
-                          inputProps: {
-                            type: "textarea",
-                            rows: "4",
-                            cols: "80",
-                            defaultValue:
-                              "Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.",
-                            placeholder: "Here can be your description"
+                            placeholder: "94030"
                           }
                         }
                       ]}
@@ -135,22 +104,17 @@ class User extends React.Component {
               </Card>
             </Col>
             <Col md={4} xs={12}>
-              <Card className="card-user">
+              <Card className="card-user" style={{height:"100%"}}>
                 <div className="image">
-                  <img src={userBackground} alt="..." />
+                  <img src={Bg} alt="..." />
                 </div>
                 <CardBody>
                   <CardAuthor
-                    avatar={userAvatar}
+                    avatar={Me}
                     avatarAlt="..."
-                    title="Mike Andrew"
-                    description="michael23"
+                    title="Phillip Rognerud"
+                    description="p.rognerud"
                   />
-                  <p className="description text-center">
-                    "Lamborghini Mercy <br />
-                    Your chick she so thirsty <br />
-                    I'm in that two seat Lambo"
-                  </p>
                 </CardBody>
                 <hr />
                 <CardSocials

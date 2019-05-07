@@ -52,22 +52,8 @@ class Notifications extends React.Component {
         break;
     }
     var options = {};
-    options = {
-      place: place,
-      message: (
-        <div>
-          <div>
-            Welcome to <b>Now UI Dashboard React</b> - a beautiful freebie for
-            every web developer.
-          </div>
-        </div>
-      ),
-      type: type,
-      icon: "now-ui-icons ui-1_bell-53",
-      autoDismiss: 7
-    };
-    this.refs.notificationAlert.notificationAlert(options);
   }
+
   render() {
     return (
       <div>

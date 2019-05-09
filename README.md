@@ -5,23 +5,23 @@ Node.js
 
 ## Install Node Dependencies
 ### Starting Backend Server
-Go into a terminal. Enter into home directory of project through the terminal.
+1. Go into a terminal. Enter into home directory of project through the terminal.
 `cd senior-project-blockchain`
-Then type in the command to install necessary packages.
+2. Then type in the command to install necessary packages.
 `npm install`
 
 ### Starting Frontend Sever 
-Open a new terminal window. Go back to home directory through the terminal.
+1. Open a new terminal window. Go back to home directory through the terminal.
 `cd senior-project-blockchain`
-Enter in command to enter into the front end directory.
+2. Enter in command to enter into the front end directory.
 `cd FRONT-END`
-Then type in the command to install necessary packages.
+3. Then type in the command to install necessary packages.
 `npm install`
 
 ## Start Project
-In terminal, go to root directory senior-project-blockchain.
+1. In terminal, go to root directory senior-project-blockchain.
 `cd senior-project-blockchain`
-Run command `npm run dev`
+2. Run command `npm run dev`
 Project should start and open a browser to localhost:3000
 
 ## Folder Structure:

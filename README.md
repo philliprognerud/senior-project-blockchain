@@ -5,6 +5,9 @@ Node.js
 https://nodejs.org/en/
 
 ## Install Node Dependencies
+### Clone Repo
+1. Go to terminal and type: `git clone https://github.com/philliprognerud/senior-project-blockchain.git`
+
 ### Backend
 1. Go into a terminal. Enter into home directory of project through the terminal.
 `cd senior-project-blockchain`
